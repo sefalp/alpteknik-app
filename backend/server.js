@@ -75,7 +75,7 @@ app.post('/add_multiple_items', ( req, res )=>{
         });
 })
 
-
+console.log("asdasd")
 
 app.listen(port, ()=>{
     console.log(`server listening on localhost : ${port}`)
