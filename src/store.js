@@ -10,8 +10,7 @@ export default new Vuex.Store({
     state:{
         data:[],
         minicartData:[],
-        totalMinicartPrice : 0,
-        userEnter: false
+        totalMinicartPrice : 0
     },
     mutations:{
         NEW_PRODUCT(state, item){
@@ -23,7 +22,7 @@ export default new Vuex.Store({
             })
         },
         DELETE_PRODUCT(state, item){
-            axios.post('http://localhost:5000/delete_product', item)
+            axios.post('http://localhost:5000/product/delete', item)
             .then(res => console.log(res))
         },
 
@@ -73,18 +72,17 @@ export default new Vuex.Store({
         },
 
         EDIT_PRODUCT(state,item){
-            axios.patch('http://localhost:5000/edit_product', item)
+            axios.patch('http://localhost:5000/product/edit', item)
             .then( res => console.log(res.data))
         },
 
         CREATE_NEW_USER(state, form){
-            if(form.password < 6){
+            if(form.password.length >= 6){
 
             if(form.checked && form.password === form.passwordAgain)
             {
-            axios.post('http://localhost:5000/create_user',form)
+            axios.post('http://localhost:5000/user/sign-up',form)
                 .then( ()=> {
-                    this.state.userEnter = true
                     console.log('new user entered the room!')
                  })
                 .catch( (e) => console.log(e))

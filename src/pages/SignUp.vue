@@ -45,7 +45,8 @@ export default {
       createNewUser(){
         this.$store.dispatch('createNewUser', this.form)
       }
-  }
+      }
+    
 }
 </script>
 

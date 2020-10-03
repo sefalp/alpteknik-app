@@ -23,7 +23,7 @@
                         </div>
                     </div>
                     <div>
-                       <router-link to="/login" class="user-entrance-route"><a class="user-entrance" href="/">Giriş Yap</a></router-link>
+                       <router-link to="/user/login" class="user-entrance-route"><a class="user-entrance" href="/">Giriş Yap</a></router-link>
                     </div>
                 </div>
              

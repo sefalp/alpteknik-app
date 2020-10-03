@@ -29,7 +29,7 @@ router.get('/', (req, res) => {
 })
 
 // wanted product deleted from database
-router.post('/delete_product', (req, res) => {
+router.post('/product/delete', (req, res) => {
     Product.deleteOne(req.body)
     .then(()=> {
         console.log('item removed!')
@@ -40,7 +40,7 @@ router.post('/delete_product', (req, res) => {
 })
 
 // edit wanted product in the database
-router.patch('/edit_product', (req, res) => {
+router.patch('/product/edit', (req, res) => {
     Product.findByIdAndUpdate(req.body._id ,req.body)
     .then( () => console.log(res.body))
     .catch( (e) => {

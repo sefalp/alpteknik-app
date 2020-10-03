@@ -3,12 +3,12 @@
         <div class="login-container">
         <div class="login-form-group">
             <label for="exampleInputEmail1">Email adresi</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
+            <input type="email" v-model="form.email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
         </div>
         <div class="login-form-group">
-            <label for="exampleInputEmail1">Şifre</label>
-            <input type="email" class="form-control" id="exampleInputPassword1" aria-describedby="passwordHelp" placeholder="Şifre">
-            <router-link to="/sign_up"> Henüz üye değil misiniz ? </router-link>
+            <label for="exampleInputPassword1">Şifre</label>
+            <input type="password" v-model="form.password" class="form-control" id="exampleInputPassword1" aria-describedby="passwordHelp" placeholder="Şifre">
+            <router-link to="/user/sign-up"> Henüz üye değil misiniz ? </router-link>
         </div>
         <button type="submit" class="login btn btn-primary">Giriş Yap</button>
         </div>
@@ -17,6 +17,14 @@
 
 <script>
 export default {
+    data(){
+        return{
+            form:{
+                email:'',
+                password:''
+            }
+        }
+    }
 
 }
 </script>

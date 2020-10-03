@@ -21,24 +21,24 @@ export default [
 
     },
     {
-        path: '/add_new_product',
+        path: '/product/add-new',
         component: AddNewProduct,
         name: 'add-new-product'
     },
     {
-        path: '/edit_product/:id',
+        path: '/product/edit/:id',
         component: EditProduct,
         name: 'edit_product',
         props: true
     },
     {
-        path: '/login',
+        path: '/user/login',
         component: Login,
         name: 'login'
     },
     {
-        path: '/sign_up',
+        path: '/user/sign-up',
         component: SignUp,
-        name: 'sign_up'
+        name: 'signUp'
     }
 ]
