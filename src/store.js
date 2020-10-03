@@ -10,7 +10,8 @@ export default new Vuex.Store({
     state:{
         data:[],
         minicartData:[],
-        totalMinicartPrice : 0
+        totalMinicartPrice : 0,
+        userEnter: false
     },
     mutations:{
         NEW_PRODUCT(state, item){
@@ -70,11 +71,38 @@ export default new Vuex.Store({
             .then( res => console.log(res.data) )
             
         },
+
         EDIT_PRODUCT(state,item){
             axios.patch('http://localhost:5000/edit_product', item)
             .then( res => console.log(res.data))
-        }
+        },
 
+        CREATE_NEW_USER(state, form){
+            if(form.password < 6){
+
+            if(form.checked && form.password === form.passwordAgain)
+            {
+            axios.post('http://localhost:5000/create_user',form)
+                .then( ()=> {
+                    this.state.userEnter = true
+                    console.log('new user entered the room!')
+                 })
+                .catch( (e) => console.log(e))
+            }
+            else if(form.password !== form.passwordAgain){
+                alert('Şifre ile tekrarı uyuşmuyor!')
+            }
+            else if(!form.checked){
+                alert('Sözleşme kabul edilmeden üye olunamaz!')
+            }
+
+            }
+            else{
+                alert(" parola '6' haneden az olmamalı ! ")
+            }
+           
+            
+        }
     },
 
 
@@ -118,6 +146,10 @@ export default new Vuex.Store({
 
         editProduct({commit}, item){
             commit('EDIT_PRODUCT', item)
+        },
+
+        createNewUser({commit},form){
+            commit('CREATE_NEW_USER',form)
         }
     }
 })
