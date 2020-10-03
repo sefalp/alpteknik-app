@@ -1,0 +1,45 @@
+<template>
+    <form class="login-form">
+        <div class="login-container">
+        <div class="login-form-group">
+            <label for="exampleInputEmail1">Email adresi</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
+        </div>
+        <div class="login-form-group">
+            <label for="exampleInputEmail1">Şifre</label>
+            <input type="email" class="form-control" id="exampleInputPassword1" aria-describedby="passwordHelp" placeholder="Şifre">
+            <router-link to="/sign_up"> Henüz üye değil misiniz ? </router-link>
+        </div>
+        <button type="submit" class="login btn btn-primary">Giriş Yap</button>
+        </div>
+    </form>
+</template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style>
+
+.login-container{
+  margin-top: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.login-form-group{
+  width: 30%;
+  margin-bottom: 1.2rem;
+}
+
+
+.login.btn.btn-primary{
+    width: 12%;
+}
+
+
+
+
+</style>

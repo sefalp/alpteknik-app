@@ -1,7 +1,10 @@
-import AddNewProduct from './components/AddNewProduct'
+import AddNewProduct from './pages/AddNewProduct'
 import Home from './pages/Home'
 import ProductPage from './pages/ProductPage'
 import EditProduct from './components/EditProduct'
+import Login from './pages/Login'
+import SignUp from './pages/SignUp'
+
 
 export default [
     {
@@ -27,5 +30,15 @@ export default [
         component: EditProduct,
         name: 'edit_product',
         props: true
+    },
+    {
+        path: '/login',
+        component: Login,
+        name: 'login'
+    },
+    {
+        path: '/sign_up',
+        component: SignUp,
+        name: 'sign_up'
     }
 ]

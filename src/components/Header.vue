@@ -23,7 +23,7 @@
                         </div>
                     </div>
                     <div>
-                        <a class="user-entrance" href="/">Giriş Yap</a>
+                       <router-link to="/login" class="user-entrance-route"><a class="user-entrance" href="/">Giriş Yap</a></router-link>
                     </div>
                 </div>
              
@@ -54,5 +54,9 @@ export default {
 }
 .btn.btn-secondary:hover{
     background-color: orangered ;
+}
+
+.user-entrance-route:hover{
+    text-decoration: none;
 }
 </style>
