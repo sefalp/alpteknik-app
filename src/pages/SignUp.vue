@@ -3,7 +3,7 @@
         <div class="signup-container">
         <div class="signup-form-group">
             <label for="exampleInputEmail1">Kullanıcı Adı</label>
-            <input v-model="form.name" type="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
+            <input v-model="form.name" type="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name">
         </div>
         <div class="signup-form-group">
             <label for="exampleInputEmail1">Email adresi</label>

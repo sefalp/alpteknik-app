@@ -10,7 +10,9 @@ export default new Vuex.Store({
     state:{
         data:[],
         minicartData:[],
-        totalMinicartPrice : 0
+        totalMinicartPrice : 0,
+        userToken: null,
+        user : null
     },
     mutations:{
         NEW_PRODUCT(state, item){
@@ -32,13 +34,33 @@ export default new Vuex.Store({
                 return item.name === product[0].name
             }) 
             if(prod.length === 0){
-                 state.minicartData.push({
+
+                const miniObject = ({
                     ...product[0],
                     quantity: 1
+                     })
+
+                state.minicartData.push(miniObject)
+
+                const headers = {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + state.userToken
+                  }
+                
+                  console.log(headers.Authorization)
+
+                axios.post('/product/add_minicart', miniObject, {
+                    headers: headers
                 })
+                .then( (res) => {
+                    console.log(res)
+                })
+                .catch((e)=>{
+                    console.log('error occured:',e)
+                })
+
             }else{
                 prod[0].quantity = prod[0].quantity + 1 
-
             }      
         },
 
@@ -76,12 +98,27 @@ export default new Vuex.Store({
             .then( res => console.log(res.data))
         },
 
+        LOGIN_USER(state, form){
+          axios.post('http://localhost:5000/user/login', form)
+            .then(( res ) => {
+
+                state.userToken = res.data.token
+                state.user = res.data.user
+
+                console.log(state.user)
+
+                return state.user
+
+            })
+            
+        },
+
         CREATE_NEW_USER(state, form){
             if(form.password.length >= 6){
 
             if(form.checked && form.password === form.passwordAgain)
             {
-            axios.post('http://localhost:5000/user/sign-up',form)
+            axios.post('http://localhost:5000/user/create',form)
                 .then( ()=> {
                     console.log('new user entered the room!')
                  })
@@ -104,11 +141,19 @@ export default new Vuex.Store({
     },
 
 
+
     getters:{
         dataAtTheMoment: state =>{
             return state.data
+        },
+
+        getUser : state => {
+            return state.user
         }
     },
+
+
+
 
     actions:{
         addNewProduct({commit}, item){
@@ -148,6 +193,10 @@ export default new Vuex.Store({
 
         createNewUser({commit},form){
             commit('CREATE_NEW_USER',form)
+        },
+
+        loginUser({commit}, loginForm){
+            commit('LOGIN_USER', loginForm)
         }
     }
 })

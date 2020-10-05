@@ -23,7 +23,14 @@
                         </div>
                     </div>
                     <div>
-                       <router-link to="/user/login" class="user-entrance-route"><a class="user-entrance" href="/">Giriş Yap</a></router-link>
+                        <div v-if="!user">
+                                <router-link to="/user/login" class="user-entrance-route"><a class="user-entrance" href="/">Giriş Yap</a></router-link>
+                        </div>
+                        <div v-else-if="user">
+                                <router-link to="/" class="user-entrance-route"><a class="user-entrance" href="/">Hesabım</a></router-link>
+                        </div>
+                        
+                       
                     </div>
                 </div>
              
@@ -38,8 +45,12 @@ export default {
     name: 'Header',
     components:{
         Minicart
+    },
+    computed:{
+    user(){
+        return this.$store.state.user
     }
-}
+}}
 </script>
 
 <style>

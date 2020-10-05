@@ -1,7 +1,7 @@
 const express = require('express');
 const Product = require('../models/product')
 const router = new express.Router();
-
+const Auth = require('../middlewares/Auth')
 
 
 // product send to database using '/add_new_product' page in website
@@ -62,6 +62,19 @@ router.post('/add_multiple_items', ( req, res )=>{
                 console.log('error occured such: ', e)
             })
         });
+})
+
+// update minicart in database
+router.post('/product/add_minicart', Auth, async(req, res)=>{
+
+    try{
+
+        console.log(req)
+
+    }catch(e){
+        res.send('error occured:',e)
+    }
+
 })
 
 module.exports = router

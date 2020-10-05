@@ -10,13 +10,15 @@
             <input type="password" v-model="form.password" class="form-control" id="exampleInputPassword1" aria-describedby="passwordHelp" placeholder="Şifre">
             <router-link to="/user/sign-up"> Henüz üye değil misiniz ? </router-link>
         </div>
-        <button type="submit" class="login btn btn-primary">Giriş Yap</button>
+        <button type="submit" class="login btn btn-primary" @click.prevent="loginUser">Giriş Yap</button>
         </div>
     </form>
 </template>
 
 <script>
+
 export default {
+
     data(){
         return{
             form:{
@@ -24,9 +26,14 @@ export default {
                 password:''
             }
         }
+    },
+    methods:{
+        loginUser(){
+            this.$store.dispatch('loginUser', this.form)
     }
-
 }
+}
+
 </script>
 
 <style>
