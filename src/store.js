@@ -9,10 +9,13 @@ export default new Vuex.Store({
 
     state:{
         data:[],
-        minicartData:[],
         totalMinicartPrice : 0,
         userToken: null,
-        user : null
+        user : {
+            name: 'Ziyaretçi',
+            isAdmin: false,
+            minicart:[]
+        }
     },
     mutations:{
         NEW_PRODUCT(state, item){
@@ -30,7 +33,7 @@ export default new Vuex.Store({
 
         MINICART_ADD(state, item){
             let product = state.data.filter((prod)=>{  return item === prod })
-            let prod = state.minicartData.filter( (item) => {
+            let prod = state.user.minicart.filter( (item) => {
                 return item.name === product[0].name
             }) 
             if(prod.length === 0){
@@ -40,50 +43,61 @@ export default new Vuex.Store({
                     quantity: 1
                      })
 
-                state.minicartData.push(miniObject)
+                state.user.minicart.push(miniObject)
+
+            }else{
+                prod[0].quantity = prod[0].quantity + 1 
+            }
+
+            if(state.user.name !== 'Ziyaretçi')
+            {
+                const cart = state.user.minicart
 
                 const headers = {
                     'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + state.userToken
-                  }
-                
-                  console.log(headers.Authorization)
-
-                axios.post('/product/add_minicart', miniObject, {
-                    headers: headers
-                })
-                .then( (res) => {
-                    console.log(res)
-                })
-                .catch((e)=>{
-                    console.log('error occured:',e)
-                })
-
-            }else{
-                prod[0].quantity = prod[0].quantity + 1 
-            }      
+                } 
+            
+              console.log(state.user.minicart)
+               
+              axios.post('http://localhost:5000/product/update_minicart', cart, {
+                  headers: headers
+              })
+              .then( res => console.log(res.data))
+            }
+            
         },
 
         SET_PRODUCTS(state, res){
             state.data = res.data
         },
 
-        GET_TOTAL_PRICE(state){
-            let totalPrice = 0
-            var item;
-            for (item in state.minicartData){
-                totalPrice = totalPrice + state.minicartData[item].price * state.minicartData[item].quantity
-            }
-            state.totalMinicartPrice = totalPrice
-        },
-
         DELETE_FROM_MINICART(state, item){
             if(item.quantity > 1){
                 item.quantity = item.quantity - 1; 
             }else if(item.quantity === 1){
-                state.minicartData = state.minicartData.filter( prod => item !== prod)
+                state.user.minicart = state.user.minicart.filter( prod => item !== prod)
             }
             state.totalMinicartPrice = state.totalMinicartPrice - item.price
+
+            if(state.user.name !== 'Ziyaretçi')
+            {
+                const cart = state.user.minicart
+
+                const headers = {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + state.userToken
+                } 
+            
+              console.log(state.user.minicart)
+               
+              axios.post('http://localhost:5000/product/update_minicart', cart, {
+                  headers: headers
+              })
+              .then( res => console.log(res.data))
+            }
+
+            
            
         },
 
@@ -149,7 +163,18 @@ export default new Vuex.Store({
 
         getUser : state => {
             return state.user
+        },
+
+        getPrice: (state) => {
+                let totalPrice = 0
+                var item;
+                for (item in state.user.minicart){
+                    totalPrice = totalPrice + state.user.minicart[item].price * state.user.minicart[item].quantity
+                }
+                return totalPrice
         }
+
+
     },
 
 
@@ -173,10 +198,6 @@ export default new Vuex.Store({
             .then(res => {
                 commit('SET_PRODUCTS', res)
             })
-        },
-
-        getTotalPrice({commit}){
-            commit('GET_TOTAL_PRICE')
         },
 
         deleteFromMinicart({commit}, item){

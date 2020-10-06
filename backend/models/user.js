@@ -40,14 +40,7 @@ const userSchema = new mongoose.Schema({
         }
     ]
     ,
-    cartItems:[
-        {
-        product:
-        {
-            type:Object
-        }
-    }
-    ],
+    minicart:[],
 
     isAdmin: {
         type: Boolean,

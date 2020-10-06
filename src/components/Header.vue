@@ -23,10 +23,10 @@
                         </div>
                     </div>
                     <div>
-                        <div v-if="!user">
+                        <div v-if="user.name === 'Ziyaretçi'">
                                 <router-link to="/user/login" class="user-entrance-route"><a class="user-entrance" href="/">Giriş Yap</a></router-link>
                         </div>
-                        <div v-else-if="user">
+                        <div v-else>
                                 <router-link to="/" class="user-entrance-route"><a class="user-entrance" href="/">Hesabım</a></router-link>
                         </div>
                         

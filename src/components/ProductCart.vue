@@ -11,7 +11,7 @@
 
         <div class="cart-buttons">
                 <b-button @click='addToMinicart'  class="buy" href="#" variant="primary">Sepete Ekle</b-button>
-            <div class="admin-buttons">
+            <div class="admin-buttons" v-if="user.isAdmin || false">
                 <b-button class="remove" @click="deleteProduct" href="#" variant="primary">Sil</b-button>
                 <b-button class="arrange" @click="$router.push({ name: 'edit_product', params: { id: item._id }})" variant="primary">
                     Düzenle
@@ -49,6 +49,11 @@ export default {
           this.$store.dispatch('getTotalPrice')
           
       }    
+    },
+    computed:{
+    user(){
+        return this.$store.state.user
+    }
     }
 }
 </script>

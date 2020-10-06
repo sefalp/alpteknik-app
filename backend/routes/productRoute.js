@@ -2,6 +2,7 @@ const express = require('express');
 const Product = require('../models/product')
 const router = new express.Router();
 const Auth = require('../middlewares/Auth')
+const User = require('../models/user')
 
 
 // product send to database using '/add_new_product' page in website
@@ -65,16 +66,19 @@ router.post('/add_multiple_items', ( req, res )=>{
 })
 
 // update minicart in database
-router.post('/product/add_minicart', Auth, async(req, res)=>{
-
-    try{
-
-        console.log(req)
-
+router.post('/product/update_minicart', Auth, async (req, res)=>{
+    try{   
+        const user = await User.findOne(req.user)
+        user.minicart = req.body
+        await user.save()
+        
     }catch(e){
-        res.send('error occured:',e)
+        res.status(400).send(e)
     }
-
 })
+
+
+
+
 
 module.exports = router

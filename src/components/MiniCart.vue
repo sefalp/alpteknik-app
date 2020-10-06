@@ -1,6 +1,5 @@
 <template>
-  <div class="dropdown-menu divs" aria-labelledby="triggerId">
-
+  <form class="dropdown-menu divs" aria-labelledby="triggerId">
       <div class="divs" v-for="item in cartProducts" :key='item._id'>
         <div class="sepet-elements">
             <div class="sepet-img">
@@ -18,15 +17,16 @@
         <hr>
     </div>
         <div class="total-price">
-        <h3>Toplam Fiyat : {{totalPrice}}</h3>
+        <h3>Toplam Fiyat : {{getPrice}}</h3>
         <a href="#"> Ürünleri Kaldır </a>
     </div>
-
-</div>
+</form>
 </template>
 
 
 <script>
+
+import {mapGetters} from 'vuex'
 
 export default {
     data(){
@@ -34,11 +34,11 @@ export default {
     },
     computed:{
         cartProducts(){
-            return this.$store.state.minicartData;
+            return this.$store.state.user.minicart;
         },
-        totalPrice(){
-            return this.$store.state.totalMinicartPrice;
-        }
+        ...mapGetters([
+            'getPrice'
+        ])
     },
     methods:{
         deleteFromMinicart(item){  
@@ -46,6 +46,7 @@ export default {
       }  
     }
 }
+
 
 </script>
 
