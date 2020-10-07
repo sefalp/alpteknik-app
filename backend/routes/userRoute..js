@@ -22,6 +22,27 @@ router.post('/user/create', async (req, res)=>{
     }
 })
 
+router.post('/user/getUser', Auth, async (req, res)=>{
+
+    try{
+
+    const email = req.body.email
+    console.log(email)
+    const user = await User.findOne({email})
+    console.log(user)
+    if(user === null){
+        res.send('sahipsiz')
+    }else{
+        res.send('sahipli')
+    }
+    
+    }catch(e){
+
+        res.status(400).send(e)
+
+    }
+})
+
 
 // check if login successful or not 
 router.post('/user/login', async (req, res) =>{
@@ -35,13 +56,27 @@ router.post('/user/login', async (req, res) =>{
     }
 })
 
-router.post('/user/logout', Auth, async (req, res) =>{
+// log the user out from site
+router.get('/user/logout', Auth, async (req, res) =>{
     try{
+
+     
         req.user.tokens = req.user.tokens.filter((toki) =>{
             return toki.token !== req.token  
         }) 
         await req.user.save()
-        res.send('user logged out!')
+        res.send(req.token)
+    }
+    catch(e){
+        res.status(400).send(e)
+    }
+})
+
+
+// arrange user information from server
+router.post('/user/settings', Auth, async (req, res) => {
+    try{
+        console.log(req.body)
     }
     catch(e){
         res.status(400).send(e)

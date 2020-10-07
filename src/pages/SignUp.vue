@@ -42,8 +42,15 @@ export default {
     }
   },
   methods:{
-      createNewUser(){
-        this.$store.dispatch('createNewUser', this.form)
+      async createNewUser(){
+        try{
+            await this.$store.dispatch('createNewUser', this.form)
+            this.$router.push({name: 'login'})
+        }
+        catch(e){
+          console.log(e)
+        }
+        
       }
       }
     

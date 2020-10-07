@@ -151,7 +151,41 @@ export default new Vuex.Store({
             }
            
             
+        },
+
+        USER_SETTİNGS(state, form){
+            
+            console.log('öyylesine USER_SETTING',form)
+
         }
+        ,
+        LOGOUT_USER(state){
+
+            const headers = {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + state.userToken
+            } 
+            axios.get('http://localhost:5000/user/logout',{
+                headers: headers
+            })
+            .then( 
+                res => 
+                {
+                    if(res.data === state.userToken){
+                        state.userToken = null,
+                        state.user = {
+                            name: 'Ziyaretçi',
+                            isAdmin: false,
+                            minicart:[]
+                        }
+                        console.log('Kullanıcı çıkış yaptı')
+                    }
+                    return 'cacakı'
+                }
+            )
+        }
+
+        
     },
 
 
@@ -218,6 +252,49 @@ export default new Vuex.Store({
 
         loginUser({commit}, loginForm){
             commit('LOGIN_USER', loginForm)
+        },
+
+        hasOwner({state}, form){
+            return new Promise( (resolve, reject) => {
+                const headers = {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + state.userToken
+                } 
+    
+                axios.post('http://localhost:5000/user/getUser', form,{
+                    headers: headers
+                }).then( 
+
+                    (ans) => resolve(ans)                  
+                
+                )
+                .catch( (e) => reject(e))
+
+            })
+        },
+
+        changePassword(state, form){
+
+
+            const headers = {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + state.userToken
+            } 
+
+            axios.post('http://localhost:5000/user/changePassword', form,{
+                headers: headers
+            }).then( 
+
+                (ans) => resolve(ans)                  
+            
+            )
+            .catch( (e) => reject(e))
+
+
+        },
+
+        logoutUser({commit}){
+            commit('LOGOUT_USER')
         }
     }
 })

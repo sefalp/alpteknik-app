@@ -4,6 +4,7 @@ import ProductPage from './pages/ProductPage'
 import EditProduct from './components/EditProduct'
 import Login from './pages/Login'
 import SignUp from './pages/SignUp'
+import profileManagement from './pages/profileManagement'
 
 
 export default [
@@ -40,5 +41,13 @@ export default [
         path: '/user/sign-up',
         component: SignUp,
         name: 'signUp'
+    },
+    {
+        path: '/user/profile_management/:user',
+        component: profileManagement,
+        name: 'profile_management',
+        props: true
     }
+
+
 ]

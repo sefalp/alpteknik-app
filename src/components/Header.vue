@@ -8,9 +8,10 @@
             </div>
 
             <div class="brand">
+                 <router-link to="/" class="user-entrance-route">
                 <a href="/"> Alp Teknik Hırdavat </a>
+                 </router-link>
             </div>
-
                 <div class="costumer-service">
 
                     <div class="dropdown open">
@@ -24,13 +25,24 @@
                     </div>
                     <div>
                         <div v-if="user.name === 'Ziyaretçi'">
-                                <router-link to="/user/login" class="user-entrance-route"><a class="user-entrance" href="/">Giriş Yap</a></router-link>
+                                <router-link to="/user/login" class="user-entrance-route">
+                                <a class="user-entrance" href="/">Giriş Yap</a>
+                                </router-link>
                         </div>
                         <div v-else>
-                                <router-link to="/" class="user-entrance-route"><a class="user-entrance" href="/">Hesabım</a></router-link>
+                            <nav>
+                                <div class="dropdown-bla">
+                                    <div class="projects">
+                                        <button id="but" class="user-entrance" >Hesabım</button>
+                                        <ul>
+                                            <li><button @click="$router.push({name:'profile_management', params: {user: user }})">Hesap Ayarları</button></li>
+                                            <li><button @click="logout">Çıkış</button></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </nav>
                         </div>
                         
-                       
                     </div>
                 </div>
              
@@ -50,7 +62,23 @@ export default {
     user(){
         return this.$store.state.user
     }
-}}
+    },
+    methods:{
+        async logout(){
+            try{
+                 await this.$store.dispatch('logoutUser')
+                 this.$router.push({name: 'home'})
+            }
+           catch(e){
+               console.log(e)
+           }
+     
+        }
+    }
+}
+
+
+
 </script>
 
 <style>
@@ -67,7 +95,86 @@ export default {
     background-color: orangered ;
 }
 
+
 .user-entrance-route:hover{
     text-decoration: none;
 }
+a {
+  text-decoration: none;
+}
+
+.dropdown-bla{
+    height: 10vh;
+    background-color: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.projects{
+  position: relative;
+}
+
+.projects li{
+    background-color: rgb(61, 167, 153);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.projects li:hover{
+        background-color: rgb(213, 221, 50);
+}
+
+.projects li a:hover{
+        color:  rgb(36, 124, 28);
+        text-decoration: none;
+}
+
+.projects ul{
+    position: absolute;
+    list-style: none;
+    background-color:wheat;
+    margin-top: 10px;
+    width: 130px;
+    height: 80px;
+    right: 0px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+    transition: all 0.4s ease;
+  
+}
+
+.projects a{
+      color: white;
+      text-decoration: none;
+      font-size: 12px;
+}
+
+.dropdown-bla .projects button{
+    background: none;
+    border: none;    
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.dropdown-bla button:hover{
+    color: rgb(252, 108, 30);
+}
+
+.projects button:focus + ul{
+     opacity: 1;
+}
+
+.projects button:focus{
+     outline: none;
+     box-shadow: none;
+}
+
 </style>

@@ -59,14 +59,14 @@ body{
 
 
 .brand{
-    width: 50%;
+    flex: 1 1 50%;
 }
 
 .brand a{
     color: white;
     text-decoration: none;
     font-size: 3rem;
-    padding-left: 3rem;
+    padding-left: 6rem;
 }
 
 .brand a:hover{
@@ -76,15 +76,17 @@ body{
 
 .costumer-service{
     display: flex;
-    justify-content: space-around;
-    width: 15%;
+    justify-content: center;
+    align-items: center;
+    flex: 2 2 35%;
 }
 
 .costumer-service .user-entrance{
     color: white;
     text-decoration: none;
     font-size: 2rem;
-    padding-right: 1rem;
+    padding-right: 2rem;
+    padding-left: 1.3rem;
 }
 .costumer-service .user-entrance:hover{
     color: #ff8000;

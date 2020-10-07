@@ -28,8 +28,15 @@ export default {
         }
     },
     methods:{
-        loginUser(){
-            this.$store.dispatch('loginUser', this.form)
+        async loginUser(){
+            try{
+                await this.$store.dispatch('loginUser', this.form)
+                this.$router.push({name: 'home'})
+            }
+            catch(e){
+                console.log(e)
+            }
+            
     }
 }
 }

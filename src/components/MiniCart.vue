@@ -18,7 +18,7 @@
     </div>
         <div class="total-price">
         <h3>Toplam Fiyat : {{getPrice}}</h3>
-        <a href="#"> Ürünleri Kaldır </a>
+        <a href="#"> Satın Al </a>
     </div>
 </form>
 </template>
