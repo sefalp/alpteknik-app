@@ -41,7 +41,7 @@ router.post('/product/delete', (req, res) => {
 })
 
 // edit wanted product in the database
-router.patch('/product/edit', (req, res) => {
+router.patch('/product/edit', Auth, (req, res) => {
     Product.findByIdAndUpdate(req.body._id ,req.body)
     .then( () => console.log(res.body))
     .catch( (e) => {

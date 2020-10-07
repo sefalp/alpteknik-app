@@ -66,14 +66,25 @@ export default {
         }
     },
     methods:{
-        addNewProductDB(){
-          this.$store.dispatch('addNewProductDB', this.form),
-          this.form = {
+        async addNewProductDB(){
+          try{
+
+            await this.$store.dispatch('addNewProductDB', this.form)
+
+            this.$router.push({name: 'home'})
+
+            this.form = {
                 name: '',
                 image : '',
                 brand : '',
                 price : null
             }
+
+          }catch(e){
+              console.log(e)
+          }
+          
+          
         }
     }
 

@@ -103,12 +103,17 @@ export default new Vuex.Store({
 
         ADD_NEW_PRODUCT_DB(state,item){
             axios.post('http://localhost:5000/product_send_to_database', item)
-            .then( res => console.log(res.data) )
-            
-        },
+            .then( res => console.log(res.data))
+        }
+        ,
 
         EDIT_PRODUCT(state,item){
-            axios.patch('http://localhost:5000/product/edit', item)
+            const headers = {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + state.userToken
+            } 
+
+            axios.patch('http://localhost:5000/product/edit', item, {headers: headers})
             .then( res => console.log(res.data))
         },
 
@@ -283,13 +288,7 @@ export default new Vuex.Store({
 
             axios.post('http://localhost:5000/user/changePassword', form,{
                 headers: headers
-            }).then( 
-
-                (ans) => resolve(ans)                  
-            
-            )
-            .catch( (e) => reject(e))
-
+            })
 
         },
 

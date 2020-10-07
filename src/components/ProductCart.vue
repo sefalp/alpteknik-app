@@ -40,9 +40,15 @@ export default {
     ,
 
     methods:{
-      deleteProduct(){
-        this.$store.dispatch('deleteProduct', this.item)
-        location.reload();
+      async deleteProduct(){
+          try{
+              await  this.$store.dispatch('deleteProduct', this.item)
+              this.$router.push({name: 'home'})
+          }catch(e){
+              console.log(e)
+          }
+        
+        
       },
       addToMinicart(){
           this.$store.dispatch('addToMiniCart', this.item)

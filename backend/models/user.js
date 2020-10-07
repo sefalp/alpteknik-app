@@ -89,6 +89,17 @@ userSchema.methods.generateAuthToken = async function(){
     return token
 }
 
+userSchema.methods.doesPasswordCorrect = async function(password){
+
+    const user = this
+
+    const isMatch = await bcrypt.compare(password, user.password)
+
+    if(!isMatch){
+        throw new Error('Şifre doğru değil')
+    }
+}
+
 
 // hash the plain text password
 userSchema.pre('save', async function(next){

@@ -3,12 +3,23 @@
     <form class="profile-form">
         <div class="profile-container">
         <div class="profile-form-group">
-            <label for="exampleInputName1">İsim</label>
-            <input type="name" v-model="form.name" class="form-control" id="exampleInputName1" aria-describedby="nameHelp" placeholder="İsim">
+            <label for="exampleInputName1"> İsim </label>
+            <input type="name" v-model="form.name" class="form-control" id="exampleInputName1"  placeholder="İsim">
         </div>
         <div class="profile-form-group">
-            <label for="exampleInputEmail1">Email adresi</label>
-            <input type="email" v-model="form.email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
+            <label for="exampleInputEmail1"> Email adresi </label>
+            <input type="email" v-model="form.email" class="form-control" id="exampleInputEmail1"  placeholder="Email">
+
+
+        </div>
+        <div class="profile-form-group">
+            <label for="exampleInputPassword1"> Şifre </label>
+            <input type="password" v-model="form.password" class="form-control" id="exampleInputPassword1" placeholder="Şifre">
+
+        </div>
+        <div class="profile-form-group">
+            <label for="exampleInputPassword2"> Şifre Tekrar </label>
+            <input type="password" v-model="form.re_password" class="form-control" id="exampleInputPassword2"  placeholder="Şifre Tekrar">
             <router-link class="change_pass" to="/user/changePassword"> Şifreyi değiştir</router-link>
         </div>
 
@@ -40,10 +51,9 @@ export default {
         async userSettings(){
 
             try{    
-                const res = await this.$store.dispatch('hasOwner', this.form)
-                if(res.data === 'sahipsiz'){
-                this.$router.push({name:'changePassword'})
-                }
+
+             const res = await this.$store.dispatch('hasOwner', this.form)
+             this.$store.state.user = res.data
                 
             }catch(e){
                 console.log('Bu email zaten kullanılmakta ! ',e)

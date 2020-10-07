@@ -35,8 +35,13 @@
                                     <div class="projects">
                                         <button id="but" class="user-entrance" >Hesabım</button>
                                         <ul>
-                                            <li><button @click="$router.push({name:'profile_management', params: {user: user }})">Hesap Ayarları</button></li>
-                                            <li><button @click="logout">Çıkış</button></li>
+                                            <li><button class="list-buttons" @click="$router.push({name:'profile_management', params: {user: user }})">Hesap Ayarları</button></li>
+                                            <li v-if="user.isAdmin">
+                                                <button class="list-buttons" @click="$router.push({name:'add-new-product'})">
+                                                    Ürün Ekle
+                                                    </button>
+                                                    </li>
+                                            <li><button class="list-buttons" @click="logout">Çıkış</button></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -118,7 +123,7 @@ a {
 .projects li{
     background-color: rgb(61, 167, 153);
     width: 100%;
-    height: 100%;
+    height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -139,7 +144,6 @@ a {
     background-color:wheat;
     margin-top: 10px;
     width: 130px;
-    height: 80px;
     right: 0px;
     display: flex;
     justify-content: space-around;
@@ -150,11 +154,6 @@ a {
   
 }
 
-.projects a{
-      color: white;
-      text-decoration: none;
-      font-size: 12px;
-}
 
 .dropdown-bla .projects button{
     background: none;

@@ -27,13 +27,26 @@ router.post('/user/getUser', Auth, async (req, res)=>{
     try{
 
     const email = req.body.email
-    console.log(email)
+    const password = req.body.password
     const user = await User.findOne({email})
-    console.log(user)
-    if(user === null){
-        res.send('sahipsiz')
+    const currentUser = await User.findOne(req.user)
+
+    if(req.body.password === req.body.re_password){
+         await currentUser.doesPasswordCorrect(password)
+    }
+    else{
+        throw new Error(' Şifreler birbiriyle uyumlu değil ! ')
+    }
+   
+    if( (email === currentUser.email) || (email !== currentUser.email && user === null) ){
+
+        const updates = Object.keys(req.body)
+        updates.forEach( (update) => req.user[update] = req.body[update] )
+        await req.user.save()
+        res.send(req.user)
+
     }else{
-        res.send('sahipli')
+        res.send('olmaz')
     }
     
     }catch(e){
