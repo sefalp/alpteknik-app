@@ -29,6 +29,9 @@
 </template>
 
 <script>
+
+import axios from 'axios'
+
 export default {
   data(){
     return{
@@ -44,11 +47,12 @@ export default {
   methods:{
       async createNewUser(){
         try{
-            await this.$store.dispatch('createNewUser', this.form)
-            this.$router.push({name: 'login'})
+             const res = await axios.post('http://localhost:5000/user/create', this.form)
+             alert(res.data)
+             this.$router.push({name:'login'})
         }
         catch(e){
-          console.log(e)
+            console.log(e)
         }
         
       }

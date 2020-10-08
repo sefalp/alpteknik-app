@@ -33,8 +33,8 @@ export default {
                 await this.$store.dispatch('loginUser', this.form)
                 this.$router.push({name: 'home'})
             }
-            catch(e){
-                console.log(e)
+            catch{
+                alert('Kullanıcı bilgileri hatalı !')
             }
             
     }

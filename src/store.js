@@ -117,53 +117,11 @@ export default new Vuex.Store({
             .then( res => console.log(res.data))
         },
 
-        LOGIN_USER(state, form){
-          axios.post('http://localhost:5000/user/login', form)
-            .then(( res ) => {
-
-                state.userToken = res.data.token
-                state.user = res.data.user
-
-                console.log(state.user)
-
-                return state.user
-
-            })
-            
+        LOGIN_USER(state,  {user, userToken}){
+            state.user = user
+            state.userToken = userToken
         },
 
-        CREATE_NEW_USER(state, form){
-            if(form.password.length >= 6){
-
-            if(form.checked && form.password === form.passwordAgain)
-            {
-            axios.post('http://localhost:5000/user/create',form)
-                .then( ()=> {
-                    console.log('new user entered the room!')
-                 })
-                .catch( (e) => console.log(e))
-            }
-            else if(form.password !== form.passwordAgain){
-                alert('Şifre ile tekrarı uyuşmuyor!')
-            }
-            else if(!form.checked){
-                alert('Sözleşme kabul edilmeden üye olunamaz!')
-            }
-
-            }
-            else{
-                alert(" parola '6' haneden az olmamalı ! ")
-            }
-           
-            
-        },
-
-        USER_SETTİNGS(state, form){
-            
-            console.log('öyylesine USER_SETTING',form)
-
-        }
-        ,
         LOGOUT_USER(state){
 
             const headers = {
@@ -251,12 +209,24 @@ export default new Vuex.Store({
             commit('EDIT_PRODUCT', item)
         },
 
-        createNewUser({commit},form){
-            commit('CREATE_NEW_USER',form)
-        },
+        loginUser({commit}, form){
+            return new Promise( (resolve, reject) => {
 
-        loginUser({commit}, loginForm){
-            commit('LOGIN_USER', loginForm)
+            axios.post('http://localhost:5000/user/login', form)
+            .then(( res ) => {
+
+                const userToken = res.data.token
+                const user = res.data.user
+
+                commit('LOGIN_USER', {user, userToken})
+
+                resolve(res)
+            })
+            .catch( (e)=> {  reject(e) } )
+            
+
+            })
+           
         },
 
         changeProfile({state}, form){
@@ -282,14 +252,14 @@ export default new Vuex.Store({
 
             return new Promise( (resolve, reject) => {
 
-            const headers = {
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + state.userToken
-            } 
+                const headers = {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + state.userToken
+                } 
 
-            axios.post('http://localhost:5000/user/changePassword', form, {headers: headers})
-            .then( (ans) => resolve(ans) )
-                .catch( (e) => reject(e))
+                axios.post('http://localhost:5000/user/changePassword', form, {headers: headers})
+                .then( (ans) => resolve(ans) )
+                    .catch( (e) => reject(e))
 
         })
 

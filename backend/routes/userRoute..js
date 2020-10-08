@@ -6,19 +6,48 @@ const bcrypt = require('bcrypt')
 
 // creates new user in database
 router.post('/user/create', async (req, res)=>{
-
-    const user = new User(req.body)
-    
+   
     try{
 
-    await user.save()
-    const token = await user.generateAuthToken()
-    res.send(user)
-    console.log(user.isAdmin)
+    const form = req.body
+
+    if(form.password.length >= 6){
+
+        if(form.checked && form.password === form.passwordAgain)
+        {
+            const isUnique = await User.findOne({email: form.email})
+            if( isUnique === null){
+                const user = new User(form)
+                await user.save()
+                const token = await user.generateAuthToken()
+                console.log(token, user)
+    
+                res.send('Kullanıcı profili oluşturuldu ! ')
+            }else{
+
+                throw new Error('Bu maile kayıtlı kullanıcı zaten var ! ')
+
+            }
+
+        }
+        else if(form.password !== form.passwordAgain){
+
+            throw new Error('Şifre ile tekrarı uyuşmuyor!')
+        }
+        else if(!form.checked){
+
+            throw new Error('Sözleşme kabul edilmeden üye olunamaz!')
+        }
+
+        }
+        else{
+       
+            throw new Error("parola '6' haneden az olmamalı !")
+        }
 
     }catch(e){
 
-        res.status(400).send(e)
+         res.send(e.message)
 
     }
 })
@@ -62,12 +91,16 @@ router.post('/user/changeProfile', Auth, async (req, res)=>{
 // check if login successful or not 
 router.post('/user/login', async (req, res) =>{
     try{
+
         const user = await User.findByCredentials(req.body.email, req.body.password)
         const token = await user.generateAuthToken()
         res.send({user,token})
+
     }
     catch(e){
+
         res.status(400).send(e)
+
     }
 })
 
