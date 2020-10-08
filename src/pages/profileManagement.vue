@@ -52,8 +52,9 @@ export default {
 
             try{    
 
-             const res = await this.$store.dispatch('hasOwner', this.form)
+             const res = await this.$store.dispatch('changeProfile', this.form)
              this.$store.state.user = res.data
+             alert('Hesabınızda yaptığınız değişiklikler kaydedildi')
                 
             }catch(e){
                 console.log('Bu email zaten kullanılmakta ! ',e)

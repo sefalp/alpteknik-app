@@ -2,6 +2,7 @@ const express = require('express');
 const router = new express.Router();
 const User = require('../models/user')
 const Auth = require('../middlewares/Auth')
+const bcrypt = require('bcrypt')
 
 // creates new user in database
 router.post('/user/create', async (req, res)=>{
@@ -22,7 +23,8 @@ router.post('/user/create', async (req, res)=>{
     }
 })
 
-router.post('/user/getUser', Auth, async (req, res)=>{
+// change profile of user ( name and email basically )
+router.post('/user/changeProfile', Auth, async (req, res)=>{
 
     try{
 
@@ -87,18 +89,26 @@ router.get('/user/logout', Auth, async (req, res) =>{
 
 
 // arrange user information from server
-router.post('/user/settings', Auth, async (req, res) => {
+router.post('/user/changePassword', Auth, async (req, res) => {
     try{
-        console.log(req.body)
+        
+        var newPassword = req.body.new_password
+        const oldPassword = req.body.old_password
+
+        if(req.body.new_password === req.body.re_new_password){
+            await req.user.doesPasswordCorrect(oldPassword)
+            req.user.password = newPassword
+            await req.user.save()
+            res.send('Şifreniz başarıyla değiştirildi')
+       }
+       else{
+           throw new Error(' Yeni şifreler birbiriyle uyumlu değil ! ')
+       }
     }
     catch(e){
         res.status(400).send(e)
     }
 })
-
-
-
-
 
 
 module.exports = router

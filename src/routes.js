@@ -5,7 +5,7 @@ import EditProduct from './components/EditProduct'
 import Login from './pages/Login'
 import SignUp from './pages/SignUp'
 import profileManagement from './pages/profileManagement'
-
+import changePassword from './pages/changePassword'
 
 export default [
     {
@@ -47,7 +47,14 @@ export default [
         component: profileManagement,
         name: 'profile_management',
         props: true
-    }
+    },
+    {
+        path: '/user/changePassword',
+        component: changePassword,
+        name: 'changePassword'
+
+    },
+
 
 
 ]

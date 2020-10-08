@@ -259,14 +259,14 @@ export default new Vuex.Store({
             commit('LOGIN_USER', loginForm)
         },
 
-        hasOwner({state}, form){
+        changeProfile({state}, form){
             return new Promise( (resolve, reject) => {
                 const headers = {
                     'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + state.userToken
                 } 
     
-                axios.post('http://localhost:5000/user/getUser', form,{
+                axios.post('http://localhost:5000/user/changeProfile', form,{
                     headers: headers
                 }).then( 
 
@@ -278,17 +278,20 @@ export default new Vuex.Store({
             })
         },
 
-        changePassword(state, form){
+        changePassword({state}, form){
 
+            return new Promise( (resolve, reject) => {
 
             const headers = {
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer ' + state.userToken
             } 
 
-            axios.post('http://localhost:5000/user/changePassword', form,{
-                headers: headers
-            })
+            axios.post('http://localhost:5000/user/changePassword', form, {headers: headers})
+            .then( (ans) => resolve(ans) )
+                .catch( (e) => reject(e))
+
+        })
 
         },
 
