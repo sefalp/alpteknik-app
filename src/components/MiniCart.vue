@@ -1,3 +1,5 @@
+
+
 <template>
   <form class="dropdown-menu divs" aria-labelledby="triggerId">
       <div class="divs" v-for="item in cartProducts" :key='item._id'>
@@ -17,9 +19,10 @@
         <hr>
     </div>
         <div class="total-price">
-        <h3>Toplam Fiyat : {{getPrice}}</h3>
-        <a href="#"> Satın Al </a>
-    </div>
+        <h3 v-if="getPrice">Toplam Tutar : {{getPrice}}</h3>
+        <h3 v-else>Sepet Boş</h3>
+        <a href="#" v-if="getPrice"> Satın Al </a>
+        </div>
 </form>
 </template>
 
@@ -86,7 +89,6 @@ export default {
 .sepet-button{
     flex: 1;
 }
-
 
 .sepet-product #title{
     font-size: 1.5em;
