@@ -103,7 +103,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 2rem;
+  height: 8rem;
 }
 
 .product-name{
@@ -139,13 +139,13 @@ export default {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    margin-top: 7rem;
+    margin-top: 2.5rem;
 }
    
 .buy{
     flex-basis: 90%;
     margin-bottom: 0.5rem;
-    margin-top: 7rem;
+    margin-top: 2rem;
     
 }
 .remove{
