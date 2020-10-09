@@ -108,10 +108,10 @@ router.post('/user/login', async (req, res) =>{
 router.get('/user/logout', Auth, async (req, res) =>{
     try{
 
-     
         req.user.tokens = req.user.tokens.filter((toki) =>{
             return toki.token !== req.token  
         }) 
+        
         await req.user.save()
         res.send(req.token)
     }

@@ -52,7 +52,6 @@ export default {
       },
       addToMinicart(){
           this.$store.dispatch('addToMiniCart', this.item)
-          this.$store.dispatch('getTotalPrice')
           
       }    
     },

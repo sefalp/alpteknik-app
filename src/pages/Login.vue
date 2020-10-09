@@ -45,20 +45,33 @@ export default {
 
 <style>
 
+.login-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .login-container{
-  margin-top: 10%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: .3rem rgb(59, 111, 18, 0.7) solid;
+  border-radius: 6px;
+  border-style: outset;
+  width: 25%;
+  padding: 3rem;
+  margin-bottom: 5%;
 }
 .login-form-group{
-  width: 30%;
+  width: 90%;
   margin-bottom: 1.2rem;
 }
 
-
 .login.btn.btn-primary{
-    width: 12%;
+    width: 90%;
+    font-size: 1.3rem;
+    font-weight: 500 ;
+    background-color: rgb(17, 147, 194)
 }
 
 

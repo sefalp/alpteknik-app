@@ -2,6 +2,7 @@
 <template>
     <form class="profile-form">
         <div class="profile-container">
+        <h1>Hesap Ayarları</h1>
         <div class="profile-form-group">
             <label for="exampleInputName1"> İsim </label>
             <input type="name" v-model="form.name" class="form-control" id="exampleInputName1"  placeholder="İsim">
@@ -66,19 +67,26 @@ export default {
 </script>
 
 <style>
+
+.profile-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .profile-container{
-  margin-top: 10%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: .3rem rgb(59, 111, 18, 0.7) solid;
+  border-radius: 6px;
+  border-style: outset;
+  width: 40%;
+  padding: 2% 1%;
 }
 .profile-form-group{
-  width: 30%;
-  margin-bottom: 1.2rem;
-}
-
-.prolife.btn.btn-primary{
-    width: 12%;
+  width: 90%;
+  margin-bottom: 1rem;
 }
 
 .change_pass{

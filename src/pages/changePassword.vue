@@ -1,6 +1,7 @@
 <template>
    <form class="change-password-form">
        <div class="profile-container">
+           <h1>Hesap Ayarları</h1>
 
         <div class="change-password-form-group">
             <label for="exampleInputPassword1"> Eski Şifre </label>
@@ -50,14 +51,25 @@ export default {
 </script>
 
 <style>
+
+.change-password-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .change-password-container{
-  margin-top: 10%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: .3rem rgb(59, 111, 18, 0.7) solid;
+  border-radius: 6px;
+  border-style: outset;
+  width: 40%;
+  padding: 2% 1%;
 }
 .change-password-form-group{
-  width: 30%;
+  width: 90%;
   margin-bottom: 1.2rem;
 }
 

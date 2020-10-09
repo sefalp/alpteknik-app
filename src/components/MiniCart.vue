@@ -1,9 +1,9 @@
 
 
 <template>
-  <form class="dropdown-menu divs" aria-labelledby="triggerId">
-      <div class="divs" v-for="item in cartProducts" :key='item._id'>
-        <div class="sepet-elements">
+  <form class="dropdown-menu keep-inside-clicks-open" aria-labelledby="triggerId">
+      <ul class="drop-ul" v-for="item in cartProducts" :key='item._id'>
+        <li class="sepet-elements">
             <div class="sepet-img">
                   <img :src='item.image'>
             </div>
@@ -13,21 +13,22 @@
                 <p id="price">Adedi:<b class="price">  {{item.quantity}}</b> </p>  
             </div>
             <div class="sepet-button">
-                <button @click.prevent="deleteFromMinicart(item)" class="sepet-btn" href="#" > Sil </button>
+                <button @click.prevent="deleteFromMinicart(item)"  class="sepet-btn" href="#" > Sil </button>
             </div>
-        </div>
+        </li>
         <hr>
-    </div>
+    </ul>
         <div class="total-price">
-        <h3 v-if="getPrice">Toplam Tutar : {{getPrice}}</h3>
-        <h3 v-else>Sepet Boş</h3>
-        <a href="#" v-if="getPrice"> Satın Al </a>
+            <h3 v-if="getPrice">Toplam Tutar : {{getPrice}}</h3>
+            <h3 v-else>Sepet Boş</h3>
+            <a href="#" v-if="getPrice"> Satın Al </a>
         </div>
 </form>
 </template>
 
 
 <script>
+
 
 import {mapGetters} from 'vuex'
 
@@ -55,7 +56,7 @@ export default {
 
 <style>
 
-.dropdown-menu.divs{
+.dropdown-menu.keep-inside-clicks-open{
     min-width: 320px;
     right: 0;
     left: auto;

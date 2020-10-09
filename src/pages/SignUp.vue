@@ -23,7 +23,7 @@
             <label class="form-check-label" for="exampleCheck1">Sözleşmeyi okudum ve kabul ediyorum.</label>
         </div>
         
-        <button @click.prevent="createNewUser" type="submit" class="signup btn btn-primary">Üye Ol</button>
+        <button @click.prevent="createNewUser" type="submit" class="signup btn btn-primary uye-ol">Üye Ol</button>
         </div>
     </form>
 </template>
@@ -62,20 +62,35 @@ export default {
 </script>
 
 <style>
+
+.signup-form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .signup-container{
-  margin-top: 10%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: .3rem rgb(59, 111, 18, 0.7) solid;
+  border-radius: 6px;
+  border-style: outset;
+  width: 30%;
+  padding: 2% 1%;
+  margin-bottom: 5%;
 }
 .signup-form-group{
-  width: 30%;
+  width: 90%;
   margin-bottom: 1.2rem;
 }
 
 
 .signup.btn.btn-primary{
-    width: 12%;
+    width: 90%;
+    font-size: 1.3rem;
+    font-weight: 500 ;
+    background-color: rgb(17, 147, 194)
 }
 
 
@@ -88,5 +103,6 @@ export default {
 .sigup-form-group .form-check-label{
   margin-left: .3rem;
 }
+
 
 </style>

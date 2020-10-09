@@ -6,6 +6,7 @@
         id="name"
         label="Ürünün adı:"
         label-for="input-1"
+        class="add-new-inputs"
       >
         <b-form-input
           id="name"
@@ -13,10 +14,11 @@
           type='text'
           required
           placeholder="İsim Giriniz"
+          class="add-new-inputs"
         ></b-form-input>
       </b-form-group>
 
-      <b-form-group id="image" label="Ürünün resmi:" label-for="input-2">
+      <b-form-group id="image" label="Ürünün resmi:" label-for="input-2" class="add-new-inputs"> 
         <b-form-input
           id="image"
           v-model="form.image"
@@ -26,7 +28,7 @@
         ></b-form-input>
       </b-form-group>
 
-      <b-form-group id="brand" label="Ürünün markası:" label-for="input-3">
+      <b-form-group id="brand" label="Ürünün markası:" label-for="input-3" class="add-new-inputs"> 
         <b-form-input
           id="brand"
           v-model="form.brand"
@@ -37,7 +39,7 @@
       </b-form-group>
 
       
-      <b-form-group id="price" label="Ürünün fiyatı:" label-for="input-3">
+      <b-form-group id="price" label="Ürünün fiyatı:" label-for="input-3" class="add-new-inputs"> 
         <b-form-input
           id="price"
           v-model="form.price"
@@ -94,26 +96,37 @@ export default {
 <style>
 
 .form-container{
-  margin-top: 5rem;
   display: flex;
-  flex-direction: column;
   align-items: center;
-}
-
-
-.form-container h1{
-  margin-bottom: 2rem;
-}
-
-.form-container .btn{
-  margin-top: 1rem;
-  width: 14%;
+  justify-content: center;
 }
 
 
 .add-product-form{
-  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: .3rem rgb(59, 111, 18, 0.7) solid;
+  border-radius: 6px;
+  border-style: outset;
+  width: 40%;
+  padding: 2% 1%;
+  margin-bottom: 5%;
 }
+
+
+.add-new-inputs{
+  width: 90%;
+}
+
+.form-container .btn.btn-primary{
+    width: 90%;
+    font-size: 1.3rem;
+    font-weight: 500 ;
+    background-color: rgb(17, 147, 194)
+}
+
+
 
 
 </style>
