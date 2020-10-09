@@ -1,17 +1,19 @@
 <template>
-    <div class="product-card">
-        <div class="product-image">
+
+    <div  class="product-card">
+        <div @click="$router.push({name: 'product-page', params: {id:item._id}})" class="product-image">
             <img :src='image'>
         </div>
+
         <div class="product-info">
-            <router-link :to="{name: 'product-page', params: {id:item._id}}"><p class="product-name"> {{name}} </p></router-link>
-            <p class="product-brand"> {{brand}} </p>
             <p class="product-price"> {{price}}₺ </p>
+            <p class="product-brand"> {{brand}} </p>
+            <p class="product-description"> {{name}} </p>
         </div>
 
-        <div class="cart-buttons">
-                <b-button @click='addToMinicart'  class="buy" href="#" variant="primary">Sepete Ekle</b-button>
-            <div class="admin-buttons" v-if="user.isAdmin || false">
+        <div class="cart-buttons"  >
+                <b-button v-if="!user.isAdmin" @click='addToMinicart'  class="buy" href="#" variant="primary" >Sepete Ekle</b-button>
+            <div class="admin-buttons" v-else>
                 <b-button class="remove" @click="deleteProduct" href="#" variant="primary">Sil</b-button>
                 <b-button class="arrange" @click="$router.push({ name: 'edit_product', params: { id: item._id }})" variant="primary">
                     Düzenle
@@ -19,6 +21,7 @@
             </div>
         </div>
     </div>
+
 </template>
 
 <script>
@@ -68,36 +71,39 @@ export default {
 
 .product-card {
   font-family:'Poppins', sans-serif;   
-  margin: 1.5rem;
-  padding: 2%;
-  flex-basis: 20%;
+  margin: 2.5rem;
+  padding: 1rem;
+  flex-basis: 18rem;
 
   display: flex; /* so child elements can use flexbox stuff too! */
   flex-direction: column;
+  align-items: center;
   box-shadow: 2px 2px 3px 2px rgb(206, 156, 156);
+  height: 30rem;
 }
 
 /* image */
 
 .product-image{
-    flex: 2;
-    margin-bottom: 1rem;
+    cursor: pointer;
 }
 .product-image img {
-  width: 100%;
+  width: 15rem;
+  height: 15rem;
+}
+
+.product-description{
+    text-align: center;
 }
 
 /* info */
 
 .product-info {
-  padding-top: 1rem;
-  margin-top: auto;
+  padding-top: .5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex: 1;
-  margin-bottom: 1rem;
-
+  height: 2rem;
 }
 
 .product-name{
@@ -110,10 +116,13 @@ export default {
     font-weight: 500;
     color: darkslategray;
     margin-bottom: 0.2rem ;
+    font-weight: 600;
 }
 .product-price{
     font-size: 1.8rem ;
     font-weight: 600;
+    color: rgb(255, 103, 48);
+    margin-bottom: 0;
 }
 
 /* buttons */
@@ -122,7 +131,6 @@ export default {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    margin: 0.3rem;
     justify-content: space-evenly;
 }
 
@@ -131,17 +139,20 @@ export default {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    margin-top: 7rem;
 }
    
 .buy{
     flex-basis: 90%;
     margin-bottom: 0.5rem;
+    margin-top: 7rem;
+    
 }
 .remove{
-    flex-basis: 42%;
+    flex-basis: 45%;
 }
 .arrange{
-    flex-basis: 42%; 
+    flex-basis: 45%; 
 }
 
 .btn.buy.btn-primary{

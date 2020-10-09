@@ -71,8 +71,7 @@ export default {
     methods:{
         async logout(){
             try{
-                 const reso = await this.$store.dispatch('pushMinicartToDatabase')
-                 console.log('response of database:', reso)
+                 await this.$store.dispatch('pushMinicartToDatabase')
                  await this.$store.dispatch('logoutUser')
                  this.$router.push({name: 'home'})
             }

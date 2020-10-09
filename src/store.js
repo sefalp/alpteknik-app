@@ -241,7 +241,6 @@ export default new Vuex.Store({
                     'Authorization': 'Bearer ' + state.userToken
                 } 
 
-                console.log('auth token is: ', state.userToken)
 
                 axios.post("http://localhost:5000/user/update_minicart", state.user.minicart, {headers: headers})
                 .then( (res) => resolve(res) )

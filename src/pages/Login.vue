@@ -1,5 +1,6 @@
 <template>
     <form class="login-form">
+        
         <div class="login-container">
         <div class="login-form-group">
             <label for="exampleInputEmail1">Email adresi</label>
@@ -60,7 +61,6 @@ export default {
   border-style: outset;
   width: 25%;
   padding: 3rem;
-  margin-bottom: 5%;
 }
 .login-form-group{
   width: 90%;

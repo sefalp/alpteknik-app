@@ -78,7 +78,7 @@ export default {
   border-style: outset;
   width: 30%;
   padding: 2% 1%;
-  margin-bottom: 5%;
+  
 }
 .signup-form-group{
   width: 90%;
