@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 
+
 Vue.use(Vuex)
 
 
@@ -48,23 +49,6 @@ export default new Vuex.Store({
             }else{
                 prod[0].quantity = prod[0].quantity + 1 
             }
-
-            if(state.user.name !== 'Ziyaretçi')
-            {
-                const cart = state.user.minicart
-
-                const headers = {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + state.userToken
-                } 
-            
-              console.log(state.user.minicart)
-               
-              axios.post('http://localhost:5000/product/update_minicart', cart, {
-                  headers: headers
-              })
-              .then( res => console.log(res.data))
-            }
             
         },
 
@@ -80,25 +64,6 @@ export default new Vuex.Store({
             }
             state.totalMinicartPrice = state.totalMinicartPrice - item.price
 
-            if(state.user.name !== 'Ziyaretçi')
-            {
-                const cart = state.user.minicart
-
-                const headers = {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + state.userToken
-                } 
-            
-              console.log(state.user.minicart)
-               
-              axios.post('http://localhost:5000/product/update_minicart', cart, {
-                  headers: headers
-              })
-              .then( res => console.log(res.data))
-            }
-
-            
-           
         },
 
         ADD_NEW_PRODUCT_DB(state,item){
@@ -143,7 +108,6 @@ export default new Vuex.Store({
                         }
                         console.log('Kullanıcı çıkış yaptı')
                     }
-                    return 'cacakı'
                 }
             )
         }
@@ -264,9 +228,27 @@ export default new Vuex.Store({
         })
 
         },
-
         logoutUser({commit}){
             commit('LOGOUT_USER')
+        },
+
+        pushMinicartToDatabase({state}){
+
+            return new Promise((resolve,reject) => {
+
+                const headers = {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + state.userToken
+                } 
+
+                console.log('auth token is: ', state.userToken)
+
+                axios.post("http://localhost:5000/user/update_minicart", state.user.minicart, {headers: headers})
+                .then( (res) => resolve(res) )
+                .catch( (e) => reject(e))
+
+            })
+
         }
     }
 })

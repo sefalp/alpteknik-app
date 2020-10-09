@@ -71,6 +71,8 @@ export default {
     methods:{
         async logout(){
             try{
+                 const reso = await this.$store.dispatch('pushMinicartToDatabase')
+                 console.log('response of database:', reso)
                  await this.$store.dispatch('logoutUser')
                  this.$router.push({name: 'home'})
             }
@@ -151,6 +153,7 @@ a {
     flex-direction: column;
     opacity: 0;
     transition: all 0.4s ease;
+    visibility: hidden;
   
 }
 
@@ -169,6 +172,7 @@ a {
 
 .projects button:focus + ul{
      opacity: 1;
+     visibility: visible;
 }
 
 .projects button:focus{

@@ -143,5 +143,19 @@ router.post('/user/changePassword', Auth, async (req, res) => {
     }
 })
 
+// update minicart in database
+router.post('/user/update_minicart', Auth, async (req, res)=>{
+    try{   
+        const user = await User.findOne(req.user)
+        user.minicart = req.body
+        console.log('database user minicart:', user.minicart)
+        await user.save()
+        res.send(user)
+        
+    }catch(e){
+        res.status(400).send(e)
+    }
+})
+
 
 module.exports = router

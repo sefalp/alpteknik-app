@@ -65,17 +65,7 @@ router.post('/add_multiple_items', ( req, res )=>{
         });
 })
 
-// update minicart in database
-router.post('/product/update_minicart', Auth, async (req, res)=>{
-    try{   
-        const user = await User.findOne(req.user)
-        user.minicart = req.body
-        await user.save()
-        
-    }catch(e){
-        res.status(400).send(e)
-    }
-})
+
 
 
 
