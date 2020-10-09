@@ -88,6 +88,7 @@ export default {
 </script>
 
 <style>
+
 .btn.btn-secondary{
     background-color: rgb(255, 181, 43);
     height: 3.5rem;

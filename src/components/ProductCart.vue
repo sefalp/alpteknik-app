@@ -1,6 +1,7 @@
 <template>
 
     <div  class="product-card">
+
         <div @click="$router.push({name: 'product-page', params: {id:item._id}})" class="product-image">
             <img :src='image'>
         </div>
