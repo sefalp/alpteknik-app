@@ -6,6 +6,7 @@ import Login from './pages/Login'
 import SignUp from './pages/SignUp'
 import profileManagement from './pages/profileManagement'
 import changePassword from './pages/changePassword'
+import buyProducts from './pages/buyProducts'
 
 export default [
     {
@@ -54,6 +55,12 @@ export default [
         name: 'changePassword'
 
     },
+    {
+        path: '/user/buyProducts',
+        component: buyProducts,
+        name: 'buyProducts'
+
+    }
 
 
 

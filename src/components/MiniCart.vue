@@ -21,7 +21,7 @@
         <div class="total-price">
             <h3 v-if="getPrice">Toplam Tutar : {{getPrice}}</h3>
             <h3 v-else>Sepet Boş</h3>
-            <a href="#" v-if="getPrice"> Satın Al </a>
+            <a href="#" v-if="getPrice" @click="$router.push({name:'buyProducts'})" data-toggle="dropdown"> Sepete Git </a>
         </div>
 </form>
 </template>

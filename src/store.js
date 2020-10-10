@@ -86,6 +86,11 @@ export default new Vuex.Store({
             state.user = user
             state.userToken = userToken
         },
+        UPDATE_ITEM_QUANTITY(state, {item,qty}){
+            const index = state.user.minicart.indexOf(item)
+            state.user.minicart[index].quantity = qty
+            console.log(state.user.minicart[index])
+        },
 
         LOGOUT_USER(state){
 
@@ -248,6 +253,10 @@ export default new Vuex.Store({
 
             })
 
+        },
+
+        updateItemQuantity({commit}, {item,qty}){
+            commit('UPDATE_ITEM_QUANTITY',  {item,qty})
         }
     }
 })
