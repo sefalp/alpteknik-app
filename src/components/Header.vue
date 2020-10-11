@@ -1,7 +1,7 @@
 <template>
    <header class="header"> 
 
-            <div class="burger">
+            <div class="burger" @click="slideCategories">
                 <div class="line1"></div>
                 <div class="line2"></div>
                 <div class="line3"></div>
@@ -79,6 +79,32 @@ export default {
                console.log(e)
            }
      
+        },
+        slideCategories(){
+
+            const burger = document.querySelector('.burger')
+            const navi = document.querySelector('.navLinks')
+            const navLinks = document.querySelectorAll('.navLinks li')
+            
+            function navslide(){
+
+                navi.classList.toggle('nav-active');
+
+                navLinks.forEach((link, index) => {
+                
+                    if(link.style.animation){
+                        link.style.animation = ''
+            
+                    }
+                    else{
+                        link.style.animation = `navLinkFade 0.5s ease forwards ${ index / 7 + 0.5}s`;
+                    }
+                })
+                burger.classList.toggle('toggle');
+            }
+
+            navslide();
+
         }
     }
 }
@@ -95,11 +121,11 @@ export default {
     grid-area: header;
     position: fixed;
     width: 100%;
+    height: 4rem;
     background-color:  rgb(30, 85, 78);
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 4rem;
     padding-left: 2rem;
 
 }
@@ -111,8 +137,8 @@ export default {
 
 .burger div{
     width: 25px;
-    height: 1.5px;
-    background-color: rgb(226, 226, 226);
+    height: 0.16rem;
+    background-color: white;
     margin: 5px;
     transition: all 0.3s ease;
 }
