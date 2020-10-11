@@ -104,6 +104,9 @@ export default new Vuex.Store({
             state.user.minicart[index].quantity = qty
             console.log(state.user.minicart[index])
         },
+        GET_PRODUCTS_ACCORDİNG_TO_CATEGORY(state, category){
+            return state.data.filter( (product) => product.category === category)
+        },
 
         LOGOUT_USER(state){
 
@@ -155,7 +158,11 @@ export default new Vuex.Store({
 
         getCategories: (state) => {
             return state.categories
-        }
+        },
+
+        getDataAccordingToCategory: (state) => (category) => {
+            return state.data.filter( product => product.category === category)
+          }
 
 
     },
@@ -277,8 +284,7 @@ export default new Vuex.Store({
         },
         removeFromMinicart({commit}, item){
             commit('REMOVE_FROM_MINICART', item)
-        },
-
+        }
 
     }
 })

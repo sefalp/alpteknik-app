@@ -7,7 +7,7 @@
 
                 <ul class="navLinks">
                     <li v-for="category in getCategories" :key="category">
-                        <a href='#'>{{category}}</a>
+                        <a href='#' @click="$router.push({name:'categoryData', params:{input : category}})" :key="category" >{{category}}</a>
                     </li>
                 </ul>
 
@@ -23,7 +23,9 @@ import {mapGetters} from 'vuex'
 export default {
 name: 'ProductList',
 data(){
-    return{}
+    return{
+        
+    }
 },
 components: {
     ProductCart

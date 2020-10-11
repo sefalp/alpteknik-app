@@ -7,6 +7,7 @@ import SignUp from './pages/SignUp'
 import profileManagement from './pages/profileManagement'
 import changePassword from './pages/changePassword'
 import buyProducts from './pages/buyProducts'
+import categoryData from './pages/categoryData'
 
 export default [
     {
@@ -60,7 +61,15 @@ export default [
         component: buyProducts,
         name: 'buyProducts'
 
+    },
+    {
+        path: '/user/category_data/:input',
+        component: categoryData,
+        name: 'categoryData',
+        props:true
+
     }
+
 
 
 

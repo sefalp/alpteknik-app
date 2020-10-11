@@ -249,8 +249,8 @@ input[type=number]::-webkit-outer-spin-button {
     flex: 2 1 20rem;
 }
 .prod-image{
-    width: 15rem;
-    height: 15rem;
+    width: 12rem;
+    height: 12rem;
 }
 
 .buyProduct-info{

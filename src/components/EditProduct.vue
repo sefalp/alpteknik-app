@@ -52,7 +52,7 @@
         ></b-form-input>
       </b-form-group>
 
-        <b-button @click="EditProduct(id, item)" type="submit" variant="primary">Düzenle</b-button>
+        <b-button @click="EditProduct" type="submit" variant="primary">Düzenle</b-button>
 
      </b-form>
   </div>  
