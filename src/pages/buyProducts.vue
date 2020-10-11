@@ -26,10 +26,15 @@
                       </div>
 
                       <div class="prod-qty">
-                          Adet:
-                          <select :value="item.quantity" @change="updateQuantity(item)" :input="updateQuantity" >
-                                <option v-for="x in getArray(item.quantity)" :key="x._id" >{{x+1}}</option>
-                          </select>
+                          
+
+                        <form class="form-bla">
+                            <div class="value-button" id="decrease" @click="decreaseValue(item.name,item)" value="Decrease Value"><p class="minus">-</p></div>
+                            <input type="number" class="myInput"  :id="item.name" :value="item.quantity" />
+                            <div class="value-button" id="increase" @click="increaseValue(item.name,item)" value="Increase Value"><p class="plus">+</p></div>
+                        </form>
+
+
                       </div>
 
                   </div>
@@ -54,6 +59,8 @@
 </template>
 
 <script>
+
+import $ from 'jquery'
 
 import {mapGetters} from 'vuex'
 
@@ -80,10 +87,31 @@ export default {
             return [...Array(int).keys()]
         },
         updateQuantity(item){
-            this.$store.dispatch('updateItemQuantity',{item : item, qty: event.target.value})
+            console.log('nanadasdsad',item)
+            //
+        },
+        increaseValue(name,item) {
+        var value = parseInt(document.getElementById(name).value, 10);
+        value = isNaN(value) ? 0 : value;
+        value++;
+        document.getElementById(name).value = value;
+        this.$store.dispatch('updateItemQuantity',{item : item, qty: value})
+        },
+
+        decreaseValue(name,item) {
+        var value = parseInt(document.getElementById(name).value, 10);
+        value = isNaN(value) ? 0 : value;
+        value < 1 ? value = 1 : '';
+        value--;
+        document.getElementById(name).value = value;
+        this.$store.dispatch('updateItemQuantity',{item : item, qty: value})
         }
+    },mounted(){
+        $(document).on('input', '.my-class', function(){
+    alert('Input changed');
+});
     }
-}
+    }
 </script>
 
 <style>
@@ -103,6 +131,21 @@ export default {
     flex-direction: column;
 }
 
+.myInput{
+    width: 3rem;
+}
+
+.plus{
+    font-size: 2rem;
+    font-weight: 700;
+    color: green;
+}
+.minus{
+    font-size: 2rem;
+    font-weight: 700;
+    color: red;
+}
+
 .cart-action{
     display: flex;
     flex-direction: column; 
@@ -113,8 +156,67 @@ export default {
     padding: 3rem 2rem;
     height: 15rem;
     margin-left: 1rem;
+}
 
 
+.form-bla {
+  width: 7rem;
+  padding: 0;
+  margin:0;
+  
+}
+
+.value-button {
+  display: inline-block;
+  width: 20px;
+  height: 37px;
+  padding: 0px 0px 0px 0px;
+  background: white;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.value-button:hover {
+  cursor: pointer;
+}
+
+.form-bla #decrease {
+  margin-right: 0px;
+  border-radius: 8px 0 0 8px;
+}
+
+.form-bla #increase {
+  margin-left: 0px;
+  border-radius: 0 8px 8px 0;
+}
+
+.form-bla #input-wrap {
+  margin: 0px;
+  padding: 0px;
+}
+
+.myInput{
+    text-align: center;
+}
+
+input#number {
+  text-align: center;
+  border: none;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  margin: 0px;
+  width: 40px;
+  height: 40px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 .upper-stuff{
@@ -146,6 +248,7 @@ export default {
     display: flex;
     flex-direction: column;
     padding: 2rem 0 .5rem 0;
+    
 }
 
 .prod-name{
