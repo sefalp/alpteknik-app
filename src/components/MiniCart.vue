@@ -13,7 +13,7 @@
                 <p id="price">Adedi:<b class="price">  {{item.quantity}}</b> </p>  
             </div>
             <div class="sepet-button">
-                <button @click.prevent="deleteFromMinicart(item)"  class="sepet-btn" href="#" > Sil </button>
+             <img @click.prevent="deleteFromMinicart(item)" class="sepet-btn" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Flat_cross_icon.svg/1024px-Flat_cross_icon.svg.png" alt="cross-image"> 
             </div>
         </li>
         <hr>
@@ -21,7 +21,7 @@
         <div class="total-price">
             <h3 v-if="getPrice">Toplam Tutar : {{getPrice}}</h3>
             <h3 v-else>Sepet Boş</h3>
-            <a href="#" v-if="getPrice" @click="$router.push({name:'buyProducts'})" data-toggle="dropdown"> Sepete Git </a>
+            <b-button class="gotoTheCart" v-if="getPrice" @click="$router.push({name:'buyProducts'})" data-toggle="dropdown"> Sepetim ▶ </b-button>
         </div>
 </form>
 </template>
@@ -63,11 +63,14 @@ export default {
 }
 .sepet-btn{
     height: 2rem;
-    width: 4rem;
+    width: 2rem;
     border-radius: 10px;
     justify-items: center;
     align-items: center;
     font-size: 1rem;
+    color: white;
+    cursor: pointer;
+    margin-left: 1rem ;
 }
 .sepet-elements{
     display: flex;
@@ -109,7 +112,21 @@ export default {
     font-size: 1.4rem;
     color: red;
     text-decoration: none;
-  
 }
+
+button.btn.gotoTheCart{
+    color: white;
+    height: 2.5rem;
+    padding-top: 0;
+    background-color: rgb(50, 173, 255);
+    width: 9rem;
+}
+
+button.btn.gotoTheCart:hover{
+
+    background-color: rgb(0, 136, 226);
+
+}
+
 
 </style>

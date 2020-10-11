@@ -81,6 +81,11 @@ export default new Vuex.Store({
             axios.patch('http://localhost:5000/product/edit', item, {headers: headers})
             .then( res => console.log(res.data))
         },
+        REMOVE_FROM_MINICART(state, item){
+
+            state.user.minicart = state.user.minicart.filter((product) => {return product._id !== item._id})
+
+        },
 
         LOGIN_USER(state,  {user, userToken}){
             state.user = user
@@ -257,6 +262,11 @@ export default new Vuex.Store({
 
         updateItemQuantity({commit}, {item,qty}){
             commit('UPDATE_ITEM_QUANTITY',  {item,qty})
-        }
+        },
+        removeFromMinicart({commit}, item){
+            commit('REMOVE_FROM_MINICART', item)
+        },
+
+
     }
 })

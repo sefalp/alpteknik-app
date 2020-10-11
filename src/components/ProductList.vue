@@ -7,7 +7,7 @@
 
                 <ul class="navLinks">
                     <li>
-                        <a href='#'>Su Tesisat</a>
+                        <a href='#'>Su Tesisatı</a>
                     </li>
                     <li>
                         <a href='#'>El Aletleri</a>
@@ -21,7 +21,6 @@
                     <li>
                         <a href='#'>Nalburiye</a>
                     </li>
-
                 </ul>
 
         </main>
@@ -65,7 +64,7 @@ mounted() {
     position: fixed;
     top: 4rem;
     bottom: 2.5rem;
-    width: 16rem;
+    width: 18rem;
     background-color: rgb(45, 133, 95);
     display: flex;
     flex-direction: column;

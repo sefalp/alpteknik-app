@@ -170,7 +170,7 @@ export default {
 .costumer-service .user-entrance{
     color: white;
     text-decoration: none;
-    font-size: 1.7rem;
+    font-size: 2rem;
     padding-right: 2rem;
     padding-left: 1.3rem;
 }
@@ -179,13 +179,13 @@ export default {
     text-decoration: none;
 }
 
-
+    
 
 .btn.btn-secondary{
     background-color: rgb(255, 181, 43);
     height: 3rem;
     width: 10rem;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-weight: 500;
     border-radius: 10px;
     color: rgb(20, 102, 255)

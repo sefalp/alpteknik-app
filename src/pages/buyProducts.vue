@@ -6,7 +6,6 @@
           <ul class="buy-product-list" >
               <div class="upper-stuff">
                    <h1> Sepetim </h1>
-                   <h3> Fiyat </h3>
               </div>
              
               <li class="product-in-list"  v-for="item in cartProducts" :key='item._id'>
@@ -39,10 +38,14 @@
 
                   </div>
 
-                  <div class="buyProduct-price">
+                  <div class="rightElements">
+                     <div class="buyProduct-price">
                       {{item.price}}₺
+                        </div>
+                         <div class="removeFromSepet">
+                        <b-button class="removeSepetButton" @click.prevent="removeFromMinicart(item)" href="#" variant="primary">Kaldır</b-button>
+                      </div>
                   </div>
-
               </li>
           </ul>
 
@@ -73,6 +76,7 @@ export default {
             }
         }
     },
+
      computed:{
         cartProducts(){
             return this.$store.state.user.minicart;
@@ -81,8 +85,10 @@ export default {
             'getPrice'
         ])
     },
+
     methods:{
-        getArray(input){
+       
+       getArray(input){
             var int = parseInt(input)
             return [...Array(int).keys()]
         },
@@ -105,8 +111,13 @@ export default {
         value--;
         document.getElementById(name).value = value;
         this.$store.dispatch('updateItemQuantity',{item : item, qty: value})
-        }
-    },mounted(){
+        },
+    removeFromMinicart(item){  
+          this.$store.dispatch('removeFromMinicart', item)
+      }  
+    },
+    
+    mounted(){
         $(document).on('input', '.my-class', function(){
     alert('Input changed');
 });
@@ -117,11 +128,10 @@ export default {
 <style>
 
 
-
 .product-list-container{
+    padding-top: 5rem;
     display: flex;
     flex-wrap: wrap;
-    margin: 1rem;
     align-items: flex-start;
 }
 
@@ -168,7 +178,7 @@ export default {
 
 .value-button {
   display: inline-block;
-  width: 20px;
+  width: 11px;
   height: 37px;
   padding: 0px 0px 0px 0px;
   background: white;
@@ -269,11 +279,31 @@ input[type=number]::-webkit-outer-spin-button {
     margin-top: 1rem;
 }
 
+
 .buyProduct-price{
-    flex: 1 1 10rem;
+  
     font-weight: 500;
     font-size: 2.2rem;
     color: rgb(0, 0, 0);
+}
+
+.rightElements{
+    flex: 1 1 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn.removeSepetButton{
+    width: 6rem;
+    font-size: 1.2rem;
+    background-color: orangered;
+    margin-bottom: 2rem;    
+}
+
+.btn.removeSepetButton:hover{
+    background-color: red;
 }
 
 </style>
