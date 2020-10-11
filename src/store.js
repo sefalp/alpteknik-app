@@ -16,7 +16,15 @@ export default new Vuex.Store({
             name: 'Ziyaretçi',
             isAdmin: false,
             minicart:[]
-        }
+        },
+        categories:[
+            'Su Tesisatı',
+            'El Aletleri',
+            'Tamirat',
+            'Güvenlik',
+            'Nalburiye',
+            'Diğer'
+        ]
     },
     mutations:{
         NEW_PRODUCT(state, item){
@@ -143,6 +151,10 @@ export default new Vuex.Store({
                     totalPrice = totalPrice + state.user.minicart[item].price * state.user.minicart[item].quantity
                 }
                 return totalPrice
+        },
+
+        getCategories: (state) => {
+            return state.categories
         }
 
 

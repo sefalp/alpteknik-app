@@ -4,7 +4,7 @@
       <h1>Ürün Düzenleme Formu</h1>
       <b-form-group
         id="name"
-        label="Ürünün adı:"
+        label="Adı:"
         label-for="input-1"
         class="formGroup"
       >
@@ -17,7 +17,7 @@
         ></b-form-input>
       </b-form-group>
 
-      <b-form-group class="formGroup" id="image" label="Ürünün resmi:" label-for="input-2">
+      <b-form-group class="formGroup" id="image" label="Resmi:" label-for="input-2">
         <b-form-input
           id="image"
           v-model="item.image"
@@ -27,7 +27,7 @@
         ></b-form-input>
       </b-form-group>
 
-      <b-form-group class="formGroup" id="brand" label="Ürünün markası:" label-for="input-3">
+      <b-form-group class="formGroup" id="brand" label="Markası:" label-for="input-3">
         <b-form-input
           id="brand"
           v-model="item.brand"
@@ -37,8 +37,12 @@
         ></b-form-input>
       </b-form-group>
 
+      <b-form-group class="formGroup" id="category" label="Kategorisi:" label-for="input-4">
+        <b-form-select class="formGroup" v-model="item.category" :options="getCategories"></b-form-select>
+     </b-form-group>
+
       
-      <b-form-group class="formGroup" id="price" label="Ürünün fiyatı:" label-for="input-3">
+      <b-form-group class="formGroup" id="price" label="Fiyatı:" label-for="input-5">
         <b-form-input
           id="price"
           v-model="item.price"
@@ -56,6 +60,7 @@
 
 <script>
 
+import {mapGetters} from 'vuex'
 
 export default {
     props:{
@@ -65,11 +70,17 @@ export default {
     },
     data(){
         return{
-            item : {}
+          item: null
         }
     }, 
+    computed:{
+       ...mapGetters([
+        'getCategories'
+    ])
+    },
     mounted(){
         this.item = this.$store.state.data.filter( (product) => {return product._id === this.id})[0]
+        console.log(this.item.category)
     },
     methods:{
         EditProduct(){

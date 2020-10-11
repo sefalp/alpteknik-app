@@ -19,8 +19,10 @@
             <small id="emailHelp" class="form-text text-muted">Bilgileriniz kimseyle paylaşılmayacaktır.</small>
         </div>
         <div class="signup-form-group form-check">
+
             <input type="checkbox" v-model="form.checked" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Sözleşmeyi okudum ve kabul ediyorum.</label>
+              <label class="form-check-label" for="exampleCheck1">Sözleşmeyi okudum ve kabul ediyorum.</label>
+
         </div>
         
         <button @click.prevent="createNewUser" type="submit" class="signup btn btn-primary uye-ol">Üye Ol</button>
@@ -70,6 +72,10 @@ export default {
 }
 
 .signup-container{
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -100,8 +106,13 @@ export default {
   justify-content: center;
 }
 
-.sigup-form-group .form-check-label{
-  margin-left: .3rem;
+.signup-form-group.form-check{
+  display: flex;
+  align-items: center;
+}
+
+.form-check-label{
+  padding-left: 1.8rem;
 }
 
 

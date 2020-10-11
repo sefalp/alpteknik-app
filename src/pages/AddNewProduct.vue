@@ -38,6 +38,10 @@
         ></b-form-input>
       </b-form-group>
 
+      <b-form-group class="formGroup" id="category" label="Kategorisi:" label-for="input-4">
+        <b-form-select class="formGroup" v-model="form.category" :options="getCategories"></b-form-select>
+     </b-form-group>
+
       
       <b-form-group id="price" label="Ürünün fiyatı:" label-for="input-3" class="add-new-inputs"> 
         <b-form-input
@@ -55,6 +59,9 @@
 </template>
 
 <script>
+
+import {mapGetters} from 'vuex'
+
 export default {
     name: 'AddNewProduct',
     data(){
@@ -63,6 +70,7 @@ export default {
                 name: '',
                 image : '',
                 brand : '',
+                category: '',
                 price : null
             }
         }
@@ -79,6 +87,7 @@ export default {
                 name: '',
                 image : '',
                 brand : '',
+                category: '',
                 price : null
             }
 
@@ -88,6 +97,11 @@ export default {
           
           
         }
+    },
+    computed:{
+      ...mapGetters([
+          'getCategories'
+      ])
     }
 
 }

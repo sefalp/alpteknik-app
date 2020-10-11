@@ -6,20 +6,8 @@
                 </div>
 
                 <ul class="navLinks">
-                    <li>
-                        <a href='#'>Su Tesisatı</a>
-                    </li>
-                    <li>
-                        <a href='#'>El Aletleri</a>
-                    </li>
-                    <li>
-                        <a href='#'>Tamirat</a>
-                    </li>
-                    <li>
-                        <a href='#'>Güvenlik</a>
-                    </li>
-                    <li>
-                        <a href='#'>Nalburiye</a>
+                    <li v-for="category in getCategories" :key="category">
+                        <a href='#'>{{category}}</a>
                     </li>
                 </ul>
 
@@ -42,7 +30,8 @@ components: {
 },
 computed:{
     ...mapGetters([
-        'dataAtTheMoment'
+        'dataAtTheMoment',
+        'getCategories'
     ])
 },
 mounted() {
