@@ -95,14 +95,13 @@ export default {
 
 <style>
 
-.form-container{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
 
 .add-product-form{
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
   align-items: center;

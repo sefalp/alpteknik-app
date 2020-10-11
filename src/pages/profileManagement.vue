@@ -68,13 +68,12 @@ export default {
 
 <style>
 
-.profile-form{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 .profile-container{
+   position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
   align-items: center;

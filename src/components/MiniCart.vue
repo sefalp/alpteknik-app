@@ -72,7 +72,7 @@ export default {
 .sepet-elements{
     display: flex;
     justify-content: space-between;
-    padding: 1rem 2rem;
+    padding: 0.4rem 2rem;
 }
 .sepet-img img{
     width: 100%;
@@ -103,7 +103,7 @@ export default {
 .total-price a{
     font-size: 1.4rem;
     color: red;
-     font-weight: 500;
+    font-weight: 500;
 }
 .total-price a:hover{
     font-size: 1.4rem;

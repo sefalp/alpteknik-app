@@ -9,7 +9,7 @@
 
             <div class="brand">
                  <router-link to="/" class="user-entrance-route">
-                <a href="/"> Alp Teknik Hırdavat </a>
+                <a href="/"> ALP TEKNİK HIRDAVAT </a>
                  </router-link>
             </div>
                 <div class="costumer-service">
@@ -35,13 +35,13 @@
                                     <div class="projects">
                                         <button id="but" class="user-entrance" >Hesabım</button>
                                         <ul>
-                                            <li><button class="list-buttons" @click="$router.push({name:'profile_management', params: {user: user }})">Hesap Ayarları</button></li>
+                                            <li><button  style="font-size: 1.5rem"  @click="$router.push({name:'profile_management', params: {user: user }})">Hesap Ayarları</button></li>
                                             <li v-if="user.isAdmin">
-                                                <button class="list-buttons" @click="$router.push({name:'add-new-product'})">
+                                                <button  style="font-size: 1.5rem" @click="$router.push({name:'add-new-product'})">
                                                     Ürün Ekle
                                                     </button>
                                                     </li>
-                                            <li><button class="list-buttons" @click="logout">Çıkış</button></li>
+                                            <li><button  @click="logout" style="font-size: 1.5rem">Çıkış</button></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -89,9 +89,75 @@ export default {
 
 <style>
 
+
+.header{
+    font-family: 'Ubuntu', sans-serif;
+    grid-area: header;
+    position: fixed;
+    width: 100%;
+    background-color:  rgb(30, 85, 78);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 4rem;
+    padding-left: 2rem;
+
+}
+
+.burger{
+    border: .1rem rgb(255, 255, 255) solid;
+    cursor: pointer;
+}
+
+.burger div{
+    width: 25px;
+    height: 1.5px;
+    background-color: rgb(226, 226, 226);
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+
+.brand{
+    flex: 1 1 50%;
+}
+
+.brand a{
+    color: white;
+    text-decoration: none;
+    font-size: 2.8rem;
+    padding-left: 6rem;
+}
+
+.brand a:hover{
+    color: #ff8000;
+    text-decoration: none;
+}
+
+.costumer-service{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 2 2 35%;
+}
+
+.costumer-service .user-entrance{
+    color: white;
+    text-decoration: none;
+    font-size: 1.7rem;
+    padding-right: 2rem;
+    padding-left: 1.3rem;
+}
+.costumer-service .user-entrance:hover{
+    color: #ff8000;
+    text-decoration: none;
+}
+
+
+
 .btn.btn-secondary{
     background-color: rgb(255, 181, 43);
-    height: 3.5rem;
+    height: 3rem;
     width: 10rem;
     font-size: 1.4rem;
     font-weight: 500;
@@ -144,7 +210,7 @@ a {
     position: absolute;
     list-style: none;
     background-color:wheat;
-    margin-top: 10px;
+    margin-top: 6px;
     width: 130px;
     right: 0px;
     display: flex;

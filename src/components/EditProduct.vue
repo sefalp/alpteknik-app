@@ -6,6 +6,7 @@
         id="name"
         label="Ürünün adı:"
         label-for="input-1"
+        class="formGroup"
       >
         <b-form-input
           id="name"
@@ -16,7 +17,7 @@
         ></b-form-input>
       </b-form-group>
 
-      <b-form-group id="image" label="Ürünün resmi:" label-for="input-2">
+      <b-form-group class="formGroup" id="image" label="Ürünün resmi:" label-for="input-2">
         <b-form-input
           id="image"
           v-model="item.image"
@@ -26,7 +27,7 @@
         ></b-form-input>
       </b-form-group>
 
-      <b-form-group id="brand" label="Ürünün markası:" label-for="input-3">
+      <b-form-group class="formGroup" id="brand" label="Ürünün markası:" label-for="input-3">
         <b-form-input
           id="brand"
           v-model="item.brand"
@@ -37,7 +38,7 @@
       </b-form-group>
 
       
-      <b-form-group id="price" label="Ürünün fiyatı:" label-for="input-3">
+      <b-form-group class="formGroup" id="price" label="Ürünün fiyatı:" label-for="input-3">
         <b-form-input
           id="price"
           v-model="item.price"
@@ -80,14 +81,6 @@ export default {
 
 <style>
 
-.form-container{
-  margin-top: 5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-
 .form-container h1{
   margin-bottom: 2rem;
 }
@@ -97,8 +90,24 @@ export default {
   width: 14%;
 }
 
+.formGroup{
+  width: 90%;
+}
+
 
 .edit-product-form{
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: .3rem rgb(59, 111, 18, 0.7) solid;
+  border-radius: 6px;
+  border-style: outset;
+  padding: 2% 1%;
+  margin-bottom: 5%;
   width: 50%;
 }
 
