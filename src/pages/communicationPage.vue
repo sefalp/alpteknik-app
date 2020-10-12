@@ -4,9 +4,9 @@
 
     <div class="communication-info-container">
       <div class="communication-info">
-            <p class="phone-number"><b>Tel: </b>532-251-50-38</p>
-            <p class="email-adress"> <b>Mail: </b>alpteknikhirdavat@gmail.com </p>
-            <p class="adress"><b>Adres: </b> Alibeyköy, Atatürk Cd. No:56, 34060 Eyüpsultan/İstanbul</p>
+            <p class="phone-number"><i class="fas fa-phone"></i> 532-251-50-38</p>
+            <p class="email-adress"><i class="fas fa-envelope"></i> alpteknikhirdavat@gmail.com </p>
+            <p class="adress"><i class="fas fa-map-marker-alt"></i> Alibeyköy, Atatürk Cd. No:56, 34060 Eyüpsultan/İstanbul</p>
       </div>
 
       <div class="google-maps">
@@ -41,7 +41,7 @@ export default {
 
 
 .communication-info-container{
-
+    font-family:'Poppins', sans-serif;   
     position: fixed;
     left: 50%;
     top: 50%;
@@ -50,10 +50,12 @@ export default {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    border: .1rem black solid;
+    border: .3rem rgb(84, 84, 84, 0.3) solid;
     width: 80rem;
     height: 40rem;
     padding: 2rem;
+    background-color: rgb(250, 250, 250);
+    border-radius: 10px;
 }
 
 .communication-info{
@@ -63,7 +65,7 @@ export default {
 }
 
 .communication-info p{
-    font-size: 1.5rem;
+    font-size: 1.7rem;
 }
 
 .info-elements{
