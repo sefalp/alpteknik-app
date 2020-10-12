@@ -4,9 +4,9 @@
 
     <div class="communication-info-container">
       <div class="communication-info">
-            <p class="phone-number"><i class="fas fa-phone"></i> 532-251-50-38</p>
-            <p class="email-adress"><i class="fas fa-envelope"></i> alpteknikhirdavat@gmail.com </p>
-            <p class="adress"><i class="fas fa-map-marker-alt"></i> Alibeyköy, Atatürk Cd. No:56, 34060 Eyüpsultan/İstanbul</p>
+            <p class="info-elements"><i class="fas fa-phone"></i> 532-251-50-38</p>
+            <p class="info-elements"><i class="fas fa-envelope"></i> alpteknikhirdavat@gmail.com </p>
+            <p class="info-elements"><i class="fas fa-map-marker-alt"></i> Alibeyköy, Atatürk Cd. No:56, 34060 Eyüpsultan/İstanbul</p>
       </div>
 
       <div class="google-maps">
@@ -38,8 +38,6 @@ export default {
 
 <style>
 
-
-
 .communication-info-container{
     font-family:'Poppins', sans-serif;   
     position: fixed;
@@ -50,12 +48,13 @@ export default {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    border: .3rem rgb(84, 84, 84, 0.3) solid;
+    border: .2rem rgba(182, 182, 182, 0.3) solid;
     width: 80rem;
-    height: 40rem;
+    height: 35rem;
     padding: 2rem;
-    background-color: rgb(250, 250, 250);
+    background-color: rgb(252, 252, 252);
     border-radius: 10px;
+    border-style: inset;
 }
 
 .communication-info{
@@ -69,7 +68,7 @@ export default {
 }
 
 .info-elements{
-    padding-bottom: 1.5rem;
+    padding-bottom: 1rem;
 }
 
 .google-maps{
@@ -77,8 +76,8 @@ export default {
 }
 
 .google-maps-visual{
-    width: 35rem;
-    height: 35rem;
+    width: 30rem;
+    height: 30rem;
 }
 
 </style>
