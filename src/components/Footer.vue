@@ -2,10 +2,14 @@
         <footer class="footer">
             
             <div class="communication">
+                <router-link to="/user/communication_page" class="live-communication-link">
                 <h2>İletişim</h2>
+                </router-link>
             </div>
             <div class="live-communication">
+                <router-link to="/" class="live-communication-link">
                 <h2><i class="fas fa-headset"></i>CanlıDestek </h2>
+                 </router-link>
             </div>
                 
         </footer>
@@ -38,5 +42,20 @@ export default {
 
 .live-communication-logo{
     width: 45px;
+}
+
+.live-communication-link{
+    text-decoration: none;
+    color: white
+}
+
+.live-communication-link:hover{
+    text-decoration: none;
+    color: #ff8000;
+}
+
+.live-communication-link:focus{
+    text-decoration: none;
+    color: white
 }
 </style>

@@ -12,6 +12,13 @@
                 <a href="/"> ALP TEKNİK HIRDAVAT </a>
                  </router-link>
             </div>
+
+             <ul class="navLinks">
+                    <li v-for="category in getCategories" :key="category">
+                        <a href='#' @click="$router.push({name:'categoryData', params:{input : category}})" :key="category" >{{category}}</a>
+                    </li>
+                </ul>
+
                 <div class="costumer-service">
 
                     <div class="dropdown open">
@@ -56,6 +63,7 @@
 
 <script>
 
+import {mapGetters} from 'vuex'
 import Minicart from './MiniCart'
 
 export default {
@@ -66,7 +74,11 @@ export default {
     computed:{
     user(){
         return this.$store.state.user
-    }
+    },
+        ...mapGetters([
+        'dataAtTheMoment',
+        'getCategories'
+    ])
     },
     methods:{
         async logout(){
@@ -109,12 +121,65 @@ export default {
     }
 }
 
-
-
 </script>
 
 <style>
 
+.navLinks {
+    position: fixed;
+    top: 4rem;
+    bottom: 2.5rem;
+    width: 18rem;
+    left: 0px;
+    background-color: rgb(45, 133, 95);
+    display: flex;
+    flex-direction: column;
+    transform: translateX(-100%);
+    transition: transform 0.5s ease-in;
+    justify-content: space-evenly;
+}
+
+.nav-active{
+    transform: translateX(0%);
+}
+
+.navLinks li{
+    padding: 0 2rem; 
+    opacity: 0;
+    list-style-type: none;
+}
+
+.navLinks a{
+    font-size: 2.5rem;
+    text-decoration: none;
+    color: white;
+}
+.navLinks a:hover{
+    font-size: 2.5rem;
+    text-decoration: none;
+    color: #0dff00;
+}
+
+@keyframes navLinkFade {
+    from {opacity: 0;
+          transform: translateX(-50px);      
+        }
+    to {opacity: 1;
+        transform: translateX(0px);      
+      }
+  }
+
+  .toggle .line1{
+      transform: rotate(-45deg) translate(-4px,5px);
+      
+  }
+  .toggle .line2{
+    opacity: 0;
+    }
+    .toggle .line3{
+        transform: rotate(45deg) translate(-4px,-5px);
+    
+    }
 
 .header{
     font-family: 'Ubuntu', sans-serif;

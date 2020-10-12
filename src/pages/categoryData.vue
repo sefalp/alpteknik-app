@@ -4,13 +4,6 @@
                 <div class="product-list">
                     <ProductCart v-for=" item in getDataAccordingToCategory(input)" :key="item._id" :item='item' />
                 </div>
-
-                <ul class="navLinks">
-                    <li v-for="category in getCategories" :key="category">
-                          <a href='#' @click="$router.push({name:'categoryData', params:{input : category}})" >{{category}}</a>
-                    </li>
-                </ul>
-
         </main>
 
 </template>
