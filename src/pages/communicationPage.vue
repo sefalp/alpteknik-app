@@ -7,6 +7,7 @@
             <p class="info-elements"><i class="fas fa-phone"></i> 532-251-50-38</p>
             <p class="info-elements"><i class="fas fa-envelope"></i> alpteknikhirdavat@gmail.com </p>
             <p class="info-elements"><i class="fas fa-map-marker-alt"></i> Alibeyköy, Atatürk Cd. No:56, 34060 Eyüpsultan/İstanbul</p>
+            <b-button class="info-elements sendMessageButton" variant="primary" ><i class="fas fa-envelope-open-text"></i> Mesaj Gönder</b-button>
       </div>
 
       <div class="google-maps">
@@ -78,6 +79,13 @@ export default {
 .google-maps-visual{
     width: 30rem;
     height: 30rem;
+}
+
+button.btn.info-elements.sendMessageButton{
+    width: 50%;
+    border-radius: 15px;
+    background-color: rgb(21, 136, 136);
+    font-size: 1.5rem;
 }
 
 </style>
