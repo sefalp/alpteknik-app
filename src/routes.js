@@ -9,7 +9,8 @@ import changePassword from './pages/changePassword'
 import buyProducts from './pages/buyProducts'
 import categoryData from './pages/categoryData'
 import communicationPage from './pages/communicationPage'
-import sendAnEmail from './pages/communicationPage'
+import sendAnEmail from './pages/sendAnEmail'
+
 
 export default [
     {

@@ -10,7 +10,7 @@
             <b-button 
             class="info-elements sendMessageButton" 
             variant="primary" 
-            @click="$router.push({name:sendAnEmail})"
+             @click="$router.push({ name: 'sendAnEmail'})"
             >
                 <i class="fas fa-envelope-open-text"></i> Mesaj Gönder
                 </b-button>
