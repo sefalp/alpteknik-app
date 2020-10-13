@@ -9,6 +9,7 @@ import changePassword from './pages/changePassword'
 import buyProducts from './pages/buyProducts'
 import categoryData from './pages/categoryData'
 import communicationPage from './pages/communicationPage'
+import sendAnEmail from './pages/communicationPage'
 
 export default [
     {
@@ -74,7 +75,15 @@ export default [
         path: '/user/communication_page',
         component: communicationPage,
         name: 'communicationPage'
+    },
+    {
+        path: '/user/send_an_email',
+        component: sendAnEmail,
+        name: 'sendAnEmail'
     }
+
+
+
 
 
 

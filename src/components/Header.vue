@@ -259,6 +259,13 @@ export default {
     background-color: orangered ;
 }
 
+.btn.btn-secondary.active.focus, .btn.btn-secondary.active:focus,
+.btn.btn-secondary.focus, .btn.btn-secondary:active.focus, 
+.btn.btn-secondary:active:focus, .btn.btn-secondary:focus {
+  outline: none;
+  box-shadow: none;
+
+}
 
 .user-entrance-route:hover{
     text-decoration: none;
