@@ -24,7 +24,7 @@ body{
     "header"
     "main"
     "footer";
-    grid-template-columns: 1fr
+    grid-template-columns: 1fr;
     grid-template-rows: 4rem 1fr 3.5rem;
     height: 100vh;
     width: auto;

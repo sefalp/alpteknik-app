@@ -3,6 +3,11 @@ const router = new express.Router();
 const User = require('../models/user')
 const Auth = require('../middlewares/Auth')
 const bcrypt = require('bcrypt')
+const sgMail = require('@sendgrid/mail')
+const sendGridAPIKey = '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'
+sgMail.setApiKey(sendGridAPIKey)
+
+
 
 // creates new user in database
 router.post('/user/create', async (req, res)=>{
@@ -155,6 +160,33 @@ router.post('/user/update_minicart', Auth, async (req, res)=>{
         res.status(400).send(e)
     }
 })
+
+
+router.post('/user/sendEmail', async (req, res) => {
+
+    try{
+
+        const userEmail = req.body.email
+        const phoneNumber = req.body.phoneNumber
+        const message = req.body.message
+    
+        await sgMail.send({
+            to :'alps@mef.edu.tr',
+            from: 'alps@mef.edu.tr',
+            subject: phoneNumber,
+            text: "Costumer's message: \n" + message + '\n' + "Costumer's email: \n" + userEmail
+        })
+
+        res.send('success')
+        
+    }catch(e){
+
+        res.send(e)
+    }
+   
+
+})
+
 
 
 module.exports = router

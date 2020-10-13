@@ -1,33 +1,35 @@
 <template>
   <div class="contact1">
 		<div class="container-contact1">
+
 			<div class="contact1-pic js-tilt" data-tilt>
 				<img src="./sendAnEmail/images/img-01.png" alt="IMG">
 			</div>
 
 			<form class="contact1-form validate-form">
+
 				<div class="wrap-input1 validate-input" data-validate = "İsim girilmesi gereklidir">
-					<input class="input1" type="text" name="name" placeholder="İsim">
+					<input class="input1" type="text" v-model="form.name" name="name" placeholder="İsim">
 					<span class="shadow-input1"></span>
 				</div>
 
 				<div class="wrap-input1 validate-input" data-validate = "Geçerli bir mail adresi giriniz !">
-					<input class="input1" type="text" name="email" placeholder="Email">
+					<input class="input1" type="text" v-model="form.email" name="email" placeholder="Email">
 					<span class="shadow-input1"></span>
 				</div>
 
 				<div class="wrap-input1 validate-input" data-validate = "Telefon numarası girilmesi gereklidir">
-					<input class="input1" type="text" name="subject" placeholder="Telefon Numarası">
+					<input class="input1" type="text" v-model="form.phoneNumber" name="subject" placeholder="Telefon Numarası">
 					<span class="shadow-input1"></span>
 				</div>
 
 				<div class="wrap-input1 validate-input" data-validate = "Mesaj boş bırakılamaz">
-					<textarea class="input1" name="message" placeholder="Mesaj"></textarea>
+					<textarea class="input1" v-model="form.message" name="message" placeholder="Mesaj"></textarea>
 					<span class="shadow-input1"></span>
 				</div>
 
 				<div class="container-contact1-form-btn">
-					<button class="contact1-form-btn">
+					<button class="contact1-form-btn" @click.prevent="sendMail">
 						<span>
 							Gönder
 							<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
@@ -40,7 +42,38 @@
 </template>
 
 <script>
+
+import axios from 'axios'
+
 export default {
+	
+	data(){
+		return{
+			form:{
+				name: '',
+				email: '',
+				phoneNumber : '',
+				message: ''
+			}
+		}
+	},
+	methods:{
+		async sendMail(){
+			try{
+				await axios.post('http://localhost:5000/user/sendEmail', this.form)
+				alert('Mesajınız iletildi, en kısa zamanda döneceğiz')
+				this.form = {
+				name: '',
+				email: '',
+				phoneNumber : '',
+				message: ''
+			}
+			}catch(e){
+				alert('Teknik bir aksaklıktan dolayı mesajınız gönderilemedi')
+			}
+		}
+	}
+
 }
 </script>
 
@@ -133,8 +166,8 @@ font-size: 2rem;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 50%;
-  min-height: 100%;
+  width: 60%;
+  height: 70%;
 
   display: -webkit-box;
   display: -webkit-flex;
@@ -153,7 +186,6 @@ font-size: 2rem;
   display: -moz-box;
   display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
 

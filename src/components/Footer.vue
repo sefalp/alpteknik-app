@@ -37,8 +37,7 @@ export default {
     bottom: 0px;
     height: 3.5rem;
     padding: 0 15rem;
-    padding-top: .4rem;
-    border: ;
+    padding-top: .4rem; 
 }
 
 .live-communication-logo{

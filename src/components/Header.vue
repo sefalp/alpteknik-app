@@ -131,7 +131,7 @@ export default {
     bottom: 2.5rem;
     width: 18rem;
     left: 0px;
-    background-color: rgb(21, 136, 136,0.7);
+    background-color: rgb(21, 136, 136, 0.7);
     display: flex;
     flex-direction: column;
     transform: translateX(-100%);
