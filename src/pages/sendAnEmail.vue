@@ -2,38 +2,35 @@
   <div class="contact1">
 		<div class="container-contact1">
 			<div class="contact1-pic js-tilt" data-tilt>
-				<img src="https://www.nicepng.com/png/detail/81-819178_free-png-paper-plane-png-images-transparent-send.png" alt="IMG">
+				<img src="./sendAnEmail/images/img-01.png" alt="IMG">
 			</div>
 
 			<form class="contact1-form validate-form">
-				<span class="contact1-form-title">
-					Get in touch
-				</span>
 
-				<div class="wrap-input1 validate-input" data-validate = "Name is required">
-					<input class="input1" type="text" name="name" placeholder="Name">
+				<div class="wrap-input1 validate-input" data-validate = "İsim Gereklidir">
+					<input class="input1" type="text" name="name" placeholder="İsim">
 					<span class="shadow-input1"></span>
 				</div>
 
-				<div class="wrap-input1 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+				<div class="wrap-input1 validate-input" data-validate = "Geçerli bir mail giriniz">
 					<input class="input1" type="text" name="email" placeholder="Email">
 					<span class="shadow-input1"></span>
 				</div>
 
-				<div class="wrap-input1 validate-input" data-validate = "Subject is required">
-					<input class="input1" type="text" name="subject" placeholder="Subject">
+				<div class="wrap-input1 validate-input" data-validate = "Konu Gereklidir">
+					<input class="input1" type="text" name="subject" placeholder="Konu">
 					<span class="shadow-input1"></span>
 				</div>
 
-				<div class="wrap-input1 validate-input" data-validate = "Message is required">
-					<textarea class="input1" name="message" placeholder="Message"></textarea>
+				<div class="wrap-input1 validate-input" data-validate = "Mesaj Kısmı Boş">
+					<textarea class="input1" name="message" placeholder="Mesaj"></textarea>
 					<span class="shadow-input1"></span>
 				</div>
 
 				<div class="container-contact1-form-btn">
 					<button class="contact1-form-btn">
 						<span>
-							Send Email
+							Gönder
 							<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
 						</span>
 					</button>
@@ -49,8 +46,7 @@ export default {
 </script>
 
 <style>
-a {
-	font-family: Montserrat-Regular;
+.contact1 a{
 	font-size: 14px;
 	line-height: 1.7;
 	color: #666666;
@@ -61,72 +57,67 @@ a {
   -moz-transition: all 0.4s;
 }
 
-a:focus {
+.contact1 a:focus {
 	outline: none !important;
 }
 
-a:hover {
+.contact1 a:hover {
 	text-decoration: none;
 	color: #57b846;
 }
 
 /*---------------------------------------------*/
-h1,h2,h3,h4,h5,h6 {
+.contact1 h1,h2,h3,h4,h5,h6 {
 	margin: 0px;
 }
 
-p {
-	font-family: Montserrat-Regular;
+.contact1 p {
 	font-size: 14px;
 	line-height: 1.7;
 	color: #666666;
 	margin: 0px;
 }
 
-ul, li {
+.contact1 ul, li {
 	margin: 0px;
 	list-style-type: none;
 }
 
 
 /*---------------------------------------------*/
-input {
+.contact1 input {
 	outline: none;
 	border: none;
 }
 
-textarea {
+.contact1 textarea {
   outline: none;
   border: none;
 }
 
-textarea:focus, input:focus {
+.contact1 textarea:focus, input:focus {
   border-color: transparent !important;
 }
 
-input::-webkit-input-placeholder { color: #999999; }
-input:-moz-placeholder { color: #999999; }
-input::-moz-placeholder { color: #999999; }
-input:-ms-input-placeholder { color: #999999; }
+.contact1 input::-webkit-input-placeholder { color: #999999; }
+.contact1 input:-moz-placeholder { color: #999999; }
+.contact1 input::-moz-placeholder { color: #999999; }
+.contact1 input:-ms-input-placeholder { color: #999999; }
 
-textarea::-webkit-input-placeholder { color: #999999; }
-textarea:-moz-placeholder { color: #999999; }
-textarea::-moz-placeholder { color: #999999; }
-textarea:-ms-input-placeholder { color: #999999; }
+.contact1 textarea::-webkit-input-placeholder { color: #999999; }
+.contact1 textarea:-moz-placeholder { color: #999999; }
+.contact1 textarea::-moz-placeholder { color: #999999; }
+.contact1 textarea:-ms-input-placeholder { color: #999999; }
 
 /*---------------------------------------------*/
-button {
+ .contact1-form-btn {
 	outline: none !important;
 	border: none;
 	background: transparent;
 }
 
-button:hover {
+ .contact1-form-btn:hover {
 	cursor: pointer;
-}
-
-iframe {
-	border: none !important;
 }
 
 
@@ -137,12 +128,12 @@ iframe {
 
 .contact1 {
   position: fixed;
-  left: 50%;
-  top: 50%;
+  left: 45%;
+  top: 40%;
   transform: translate(-50%, -50%);
-  width: 100%;
-  min-height: 100%;
-  padding: 15px;
+  width: 50%;
+  height: 50%;
+  padding: 5px;
 
   display: -webkit-box;
   display: -webkit-flex;
@@ -165,7 +156,6 @@ iframe {
   justify-content: space-between;
   align-items: center;
 
-  padding: 90px 130px 88px 148px;
 }
 
 /*------------------------------------------------------------------
@@ -195,21 +185,21 @@ iframe {
   padding-bottom: 44px;
 }
 
-input.input1 {
-  height: 50px;
+.contact1 input.input1 {
+  height: 35px;
   border-radius: 25px;
   padding: 0 30px;
 }
-input.input1 + .shadow-input1 {
+.contact1 input.input1 + .shadow-input1 {
   border-radius: 25px;
 }
 
-textarea.input1 {
-  min-height: 150px;
+.contact1 textarea.input1 {
+  min-height: 120px;
   border-radius: 25px;
   padding: 12px 30px;
 }
-textarea.input1 + .shadow-input1 {
+.contact1 textarea.input1 + .shadow-input1 {
   border-radius: 25px;
 }
 
@@ -336,9 +326,6 @@ textarea.input1 + .shadow-input1 {
 }
 
 @media (max-width: 992px) {
-  .container-contact1 {
-    padding: 90px 80px 88px 90px;
-  }
 
   .contact1-pic {
     width: 35%;
@@ -350,9 +337,6 @@ textarea.input1 + .shadow-input1 {
 }
 
 @media (max-width: 768px) {
-  .container-contact1 {
-    padding: 90px 80px 88px 80px;
-  }
 
   .contact1-pic {
     display: none;
@@ -363,11 +347,6 @@ textarea.input1 + .shadow-input1 {
   }
 }
 
-@media (max-width: 576px) {
-  .container-contact1 {
-    padding: 90px 15px 88px 15px;
-  }
-}
 
 
 /*------------------------------------------------------------------

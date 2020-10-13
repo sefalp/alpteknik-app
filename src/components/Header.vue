@@ -182,7 +182,7 @@ export default {
     }
 
 .header{
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Ubuntu', sans-serif ;
     grid-area: header;
     position: fixed;
     width: 100%;

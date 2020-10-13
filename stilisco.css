@@ -4,7 +4,8 @@ html{
 }
 
 body{
-    font: 1.6rem Helvetica;
+    font: 1.6rem ;
+    font-family: 'Ubuntu', sans-serif ;
     height: 100vh;
     margin: 0;
 }
