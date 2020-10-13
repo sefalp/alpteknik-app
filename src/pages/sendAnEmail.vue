@@ -6,30 +6,30 @@
 			</div>
 
 			<form class="contact1-form validate-form">
-				<div class="wrap-input1 validate-input" data-validate = "Name is required">
-					<input class="input1" type="text" name="name" placeholder="Name">
+				<div class="wrap-input1 validate-input" data-validate = "İsim girilmesi gereklidir">
+					<input class="input1" type="text" name="name" placeholder="İsim">
 					<span class="shadow-input1"></span>
 				</div>
 
-				<div class="wrap-input1 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+				<div class="wrap-input1 validate-input" data-validate = "Geçerli bir mail adresi giriniz !">
 					<input class="input1" type="text" name="email" placeholder="Email">
 					<span class="shadow-input1"></span>
 				</div>
 
-				<div class="wrap-input1 validate-input" data-validate = "Subject is required">
-					<input class="input1" type="text" name="subject" placeholder="Subject">
+				<div class="wrap-input1 validate-input" data-validate = "Konu girilmesi gereklidir">
+					<input class="input1" type="text" name="subject" placeholder="Konu">
 					<span class="shadow-input1"></span>
 				</div>
 
-				<div class="wrap-input1 validate-input" data-validate = "Message is required">
-					<textarea class="input1" name="message" placeholder="Message"></textarea>
+				<div class="wrap-input1 validate-input" data-validate = "Mesaj boş bırakılamaz">
+					<textarea class="input1" name="message" placeholder="Mesaj"></textarea>
 					<span class="shadow-input1"></span>
 				</div>
 
 				<div class="container-contact1-form-btn">
 					<button class="contact1-form-btn">
 						<span>
-							Send Email
+							Gönder
 							<i class="fa fa-long-arrow-right" aria-hidden="true"></i>
 						</span>
 					</button>
@@ -46,7 +46,6 @@ export default {
 
 <style>
 .contact1 a{
-	font-family: Montserrat-Regular;
 	font-size: 14px;
 	line-height: 1.7;
 	color: #666666;
@@ -72,7 +71,6 @@ export default {
 }
 
 .contact1 p {
-	font-family: Montserrat-Regular;
 	font-size: 14px;
 	line-height: 1.7;
 	color: #666666;
@@ -115,7 +113,12 @@ export default {
 	outline: none !important;
 	border: none;
 	background: transparent;
+	
 }
+.contact1-form-btn span{
+font-size: 2rem;
+}
+
 
 .contact1-form-btn:hover {
 	cursor: pointer;
@@ -175,7 +178,6 @@ export default {
 
 .contact1-form-title {
   display: block;
-  font-family: Montserrat-ExtraBold;
   font-size: 24px;
   color: #333333;
   line-height: 1.2;
@@ -193,7 +195,7 @@ export default {
 }
 
 .contact1 textarea.input1 {
-  min-height: 150px;
+  min-height: 100px;
   border-radius: 25px;
   padding: 12px 30px;
 }
@@ -213,7 +215,6 @@ export default {
   display: block;
   width: 100%;
   background: #e6e6e6;
-  font-family: Montserrat-Bold;
   font-size: 15px;
   line-height: 1.5;
   color: #666666;
@@ -264,10 +265,9 @@ export default {
 
 .contact1-form-btn {
   min-width: 193px;
-  height: 50px;
+  height: 40px;
   border-radius: 25px;
   background: #57b846;
-  font-family: Montserrat-Bold;
   font-size: 15px;
   line-height: 1.5;
   color: #fff;
@@ -324,9 +324,6 @@ export default {
 }
 
 @media (max-width: 992px) {
-  .container-contact1 {
-    padding: 90px 80px 88px 90px;
-  }
 
   .contact1-pic {
     width: 35%;
@@ -338,9 +335,6 @@ export default {
 }
 
 @media (max-width: 768px) {
-  .container-contact1 {
-    padding: 90px 80px 88px 80px;
-  }
 
   .contact1-pic {
     display: none;
@@ -351,11 +345,6 @@ export default {
   }
 }
 
-@media (max-width: 576px) {
-  .container-contact1 {
-    padding: 90px 15px 88px 15px;
-  }
-}
 
 
 /*------------------------------------------------------------------
@@ -382,7 +371,6 @@ export default {
   right: 8px;
   pointer-events: none;
 
-  font-family: Montserrat-Medium;
   color: #c80000;
   font-size: 13px;
   line-height: 1.4;

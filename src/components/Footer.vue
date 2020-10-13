@@ -23,7 +23,6 @@ export default {
 
 <style>
 .footer{
-    font-family: 'Ubuntu', sans-serif;
     grid-area: footer;
     font-size: 1.5rem;
     color: white;
