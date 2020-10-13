@@ -16,8 +16,8 @@
 					<span class="shadow-input1"></span>
 				</div>
 
-				<div class="wrap-input1 validate-input" data-validate = "Konu girilmesi gereklidir">
-					<input class="input1" type="text" name="subject" placeholder="Konu">
+				<div class="wrap-input1 validate-input" data-validate = "Telefon numarası girilmesi gereklidir">
+					<input class="input1" type="text" name="subject" placeholder="Telefon Numarası">
 					<span class="shadow-input1"></span>
 				</div>
 

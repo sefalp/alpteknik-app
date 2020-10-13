@@ -131,7 +131,7 @@ export default {
     bottom: 2.5rem;
     width: 18rem;
     left: 0px;
-    background-color: rgb(45, 133, 95);
+    background-color: rgb(21, 136, 136,0.7);
     display: flex;
     flex-direction: column;
     transform: translateX(-100%);
@@ -157,7 +157,7 @@ export default {
 .navLinks a:hover{
     font-size: 2.5rem;
     text-decoration: none;
-    color: #0dff00;
+    color: #f0fd00;
 }
 
 @keyframes navLinkFade {
@@ -187,7 +187,7 @@ export default {
     position: fixed;
     width: 100%;
     height: 4rem;
-    background-color:  rgb(30, 85, 78);
+    background-color:  rgb(21, 136, 136);
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -221,7 +221,7 @@ export default {
 }
 
 .brand a:hover{
-    color: #ff8000;
+    color: #f0fd00;
     text-decoration: none;
 }
 
@@ -240,7 +240,7 @@ export default {
     padding-left: 1.3rem;
 }
 .costumer-service .user-entrance:hover{
-    color: #ff8000;
+    color: #f0fd00;
     text-decoration: none;
 }
 
@@ -296,7 +296,7 @@ a {
 }
 
 .projects li:hover{
-        background-color: rgb(213, 221, 50);
+        background-color: #f0fd00;
 }
 
 .projects li a:hover{
@@ -331,7 +331,7 @@ a {
 }
 
 .dropdown-bla button:hover{
-    color: rgb(252, 108, 30);
+    color: #f0fd00;
 }
 
 .projects button:focus + ul{

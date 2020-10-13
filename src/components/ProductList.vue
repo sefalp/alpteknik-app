@@ -46,8 +46,9 @@ mounted() {
 
 .product-list {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: start;
     flex-wrap: wrap;
     padding: 6rem;
+    padding-left: 4rem;
 }
 </style>

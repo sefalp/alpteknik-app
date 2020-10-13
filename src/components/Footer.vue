@@ -23,10 +23,11 @@ export default {
 
 <style>
 .footer{
+
     grid-area: footer;
     font-size: 1.5rem;
     color: white;
-    background-color: rgb(30, 85, 78);
+    background-color: rgb(21, 136, 136);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -37,6 +38,7 @@ export default {
     height: 3.5rem;
     padding: 0 15rem;
     padding-top: .4rem;
+    border: ;
 }
 
 .live-communication-logo{
@@ -50,9 +52,8 @@ export default {
 
 .live-communication-link:hover{
     text-decoration: none;
-    color: #ff8000;
+    color: #f0fd00;
 }
-
 .live-communication-link:focus{
     text-decoration: none;
     color: white
