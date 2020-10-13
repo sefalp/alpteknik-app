@@ -2,14 +2,10 @@
   <div class="contact1">
 		<div class="container-contact1">
 			<div class="contact1-pic js-tilt" data-tilt>
-				<img src="https://www.nicepng.com/png/detail/81-819178_free-png-paper-plane-png-images-transparent-send.png" alt="IMG">
+				<img src="./sendAnEmail/images/img-01.png" alt="IMG">
 			</div>
 
 			<form class="contact1-form validate-form">
-				<span class="contact1-form-title">
-					Get in touch
-				</span>
-
 				<div class="wrap-input1 validate-input" data-validate = "Name is required">
 					<input class="input1" type="text" name="name" placeholder="Name">
 					<span class="shadow-input1"></span>
@@ -49,7 +45,7 @@ export default {
 </script>
 
 <style>
-a {
+.contact1 a{
 	font-family: Montserrat-Regular;
 	font-size: 14px;
 	line-height: 1.7;
@@ -61,21 +57,21 @@ a {
   -moz-transition: all 0.4s;
 }
 
-a:focus {
+.contact1 a:focus {
 	outline: none !important;
 }
 
-a:hover {
+.contact1 a:hover {
 	text-decoration: none;
 	color: #57b846;
 }
 
 /*---------------------------------------------*/
-h1,h2,h3,h4,h5,h6 {
+.contact1 h1,h2,h3,h4,h5,h6 {
 	margin: 0px;
 }
 
-p {
+.contact1 p {
 	font-family: Montserrat-Regular;
 	font-size: 14px;
 	line-height: 1.7;
@@ -83,53 +79,47 @@ p {
 	margin: 0px;
 }
 
-ul, li {
+.contact1 ul, li {
 	margin: 0px;
 	list-style-type: none;
 }
 
 
 /*---------------------------------------------*/
-input {
+.contact1 input {
 	outline: none;
 	border: none;
 }
 
-textarea {
+.contact1 textarea {
   outline: none;
   border: none;
 }
 
-textarea:focus, input:focus {
+.contact1 textarea:focus, input:focus {
   border-color: transparent !important;
 }
 
-input::-webkit-input-placeholder { color: #999999; }
-input:-moz-placeholder { color: #999999; }
-input::-moz-placeholder { color: #999999; }
-input:-ms-input-placeholder { color: #999999; }
+.contact1 input::-webkit-input-placeholder { color: #999999; }
+.contact1 input:-moz-placeholder { color: #999999; }
+.contact1 input::-moz-placeholder { color: #999999; }
+.contact1 input:-ms-input-placeholder { color: #999999; }
 
-textarea::-webkit-input-placeholder { color: #999999; }
-textarea:-moz-placeholder { color: #999999; }
-textarea::-moz-placeholder { color: #999999; }
-textarea:-ms-input-placeholder { color: #999999; }
+.contact1 textarea::-webkit-input-placeholder { color: #999999; }
+.contact1 textarea:-moz-placeholder { color: #999999; }
+.contact1 textarea::-moz-placeholder { color: #999999; }
+.contact1 textarea:-ms-input-placeholder { color: #999999; }
 
 /*---------------------------------------------*/
-button {
+.contact1-form-btn {
 	outline: none !important;
 	border: none;
 	background: transparent;
 }
 
-button:hover {
+.contact1-form-btn:hover {
 	cursor: pointer;
 }
-
-iframe {
-	border: none !important;
-}
-
-
 
 
 /*//////////////////////////////////////////////////////////////////
@@ -140,9 +130,8 @@ iframe {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 100%;
+  width: 50%;
   min-height: 100%;
-  padding: 15px;
 
   display: -webkit-box;
   display: -webkit-flex;
@@ -165,7 +154,6 @@ iframe {
   justify-content: space-between;
   align-items: center;
 
-  padding: 90px 130px 88px 148px;
 }
 
 /*------------------------------------------------------------------
@@ -195,21 +183,21 @@ iframe {
   padding-bottom: 44px;
 }
 
-input.input1 {
-  height: 50px;
+.contact1 input.input1 {
+  height: 40px;
   border-radius: 25px;
   padding: 0 30px;
 }
-input.input1 + .shadow-input1 {
+.contact1 input.input1 + .shadow-input1 {
   border-radius: 25px;
 }
 
-textarea.input1 {
+.contact1 textarea.input1 {
   min-height: 150px;
   border-radius: 25px;
   padding: 12px 30px;
 }
-textarea.input1 + .shadow-input1 {
+.contact1 textarea.input1 + .shadow-input1 {
   border-radius: 25px;
 }
 
@@ -221,7 +209,7 @@ textarea.input1 + .shadow-input1 {
   margin-bottom: 20px;
 }
 
-.input1 {
+.contact1 .input1 {
   display: block;
   width: 100%;
   background: #e6e6e6;
@@ -231,7 +219,7 @@ textarea.input1 + .shadow-input1 {
   color: #666666;
 }
 
-.shadow-input1 {
+.contact1 .shadow-input1 {
   content: '';
   display: block;
   position: absolute;
@@ -244,7 +232,7 @@ textarea.input1 + .shadow-input1 {
   color: rgba(87,184,70, 0.5);
 }
 
-.input1:focus + .shadow-input1 {
+.contact1 .input1:focus + .shadow-input1 {
   -webkit-animation: anim-shadow 0.5s ease-in-out forwards;
   animation: anim-shadow 0.5s ease-in-out forwards;
 }
@@ -373,7 +361,7 @@ textarea.input1 + .shadow-input1 {
 /*------------------------------------------------------------------
 [ Alert validate ]*/
 
-.validate-input {
+.contact1 .validate-input {
   position: relative;
 }
 
