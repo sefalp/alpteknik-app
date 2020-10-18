@@ -19,7 +19,7 @@
         <hr>
     </ul>
         <div class="total-price">
-            <h3 v-if="getPrice">Toplam Tutar : {{getPrice}}</h3>
+            <h3 v-if="getPrice">Toplam Tutar : <b>{{getPrice}}₺</b> </h3>
             <h3 v-else>Sepet Boş</h3>
             <b-button class="gotoTheCart" v-if="getPrice" @click="$router.push({name:'buyProducts'})" data-toggle="dropdown"> Sepetim ▶ </b-button>
         </div>

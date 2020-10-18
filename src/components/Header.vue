@@ -201,7 +201,7 @@ export default {
 }
 
 .burger div{
-    width: 25px;
+    width: 27px;
     height: 0.16rem;
     background-color: white;
     margin: 5px;
@@ -287,7 +287,7 @@ a {
 }
 
 .projects li{
-    background-color: rgb(61, 167, 153);
+    background-color: rgb(92, 189, 124);
     width: 100%;
     height: 40px;
     display: flex;
@@ -296,11 +296,11 @@ a {
 }
 
 .projects li:hover{
-        background-color: #f0fd00;
+        background-color: rgb(61, 151, 91);
 }
 
 .projects li a:hover{
-        color:  rgb(36, 124, 28);
+        color:  white;
         text-decoration: none;
 }
 
@@ -342,6 +342,231 @@ a {
 .projects button:focus{
      outline: none;
      box-shadow: none;
+}
+
+@media (max-width: 1200px) {
+
+    
+.navLinks {
+    position: fixed;
+    top: 3rem;
+    bottom: 1.7rem;
+    width: 15rem;
+    left: 0px;
+    background-color: rgb(21, 136, 136, 0.7);
+    display: flex;
+    flex-direction: column;
+    transform: translateX(-100%);
+    transition: transform 0.5s ease-in;
+    justify-content: space-evenly;
+}
+
+.nav-active{
+    transform: translateX(0%);
+}
+
+.navLinks li{
+    padding: 0 2rem; 
+    opacity: 0;
+    list-style-type: none;
+}
+
+.navLinks a{
+    font-size: 2rem;
+    text-decoration: none;
+    color: white;
+}
+.navLinks a:hover{
+    font-size: 2rem;
+    text-decoration: none;
+    color: #f0fd00;
+}
+
+@keyframes navLinkFade {
+    from {opacity: 0;
+          transform: translateX(-50px);      
+        }
+    to {opacity: 1;
+        transform: translateX(0px);      
+      }
+  }
+
+  .toggle .line1{
+      transform: rotate(-45deg) translate(-4px,5px);
+      
+  }
+  .toggle .line2{
+    opacity: 0;
+    }
+    .toggle .line3{
+        transform: rotate(45deg) translate(-4px,-5px);
+    
+    }
+
+.header{
+    font-family: 'Ubuntu', sans-serif;
+    grid-area: header;
+    position: fixed;
+    width: 100%;
+    height: 3rem;
+    background-color:  rgb(21, 136, 136);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-left: 2rem;
+
+}
+
+.burger{
+    border: .1rem rgb(255, 255, 255) solid;
+    cursor: pointer;
+}
+
+.burger div{
+    width: 20px;
+    height: 0.16rem;
+    background-color: white;
+    margin: 4px 4px;
+    transition: all 0.3s ease;
+}
+
+
+.brand{
+    flex: 1 1 50%;
+}
+
+.brand a{
+    color: white;
+    text-decoration: none;
+    font-size: 2.5rem;
+    padding-left: 6rem;
+}
+
+.brand a:hover{
+    color: #f0fd00;
+    text-decoration: none;
+}
+
+.costumer-service{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 2 2 35%;
+}
+
+.costumer-service .user-entrance{
+    color: white;
+    text-decoration: none;
+    font-size: 1.8rem;
+    padding-right: 2rem;
+    padding-left: 1.3rem;
+}
+.costumer-service .user-entrance:hover{
+    color: #f0fd00;
+    text-decoration: none;
+}
+
+    
+
+.btn.btn-secondary{
+    background-color: rgb(255, 181, 43);
+    height: 2.5rem;
+    width: 10rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+    border-radius: 10px;
+    color: rgb(20, 102, 255);
+    padding-top: .1rem;
+    
+}
+.btn.btn-secondary:hover{
+    background-color: orangered ;
+}
+
+.btn.btn-secondary.active.focus, .btn.btn-secondary.active:focus,
+.btn.btn-secondary.focus, .btn.btn-secondary:active.focus, 
+.btn.btn-secondary:active:focus, .btn.btn-secondary:focus {
+  outline: none;
+  box-shadow: none;
+
+}
+
+.user-entrance-route:hover{
+    text-decoration: none;
+}
+a {
+  text-decoration: none;
+}
+
+.dropdown-bla{
+    height: 10vh;
+    background-color: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.projects{
+  position: relative;
+}
+
+.projects li{
+    background-color: rgb(92, 189, 124);
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.projects li:hover{
+        background-color: rgb(61, 151, 91);
+}
+
+.projects li a:hover{
+        color:  white;
+        text-decoration: none;
+}
+
+.projects ul{
+    position: absolute;
+    list-style: none;
+    background-color:wheat;
+    margin-top: 6px;
+    width: 130px;
+    right: 0px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+    transition: all 0.4s ease;
+    visibility: hidden;
+  
+}
+
+
+.dropdown-bla .projects button{
+    background: none;
+    border: none;    
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.dropdown-bla button:hover{
+    color: #f0fd00;
+}
+
+.projects button:focus + ul{
+     opacity: 1;
+     visibility: visible;
+}
+
+.projects button:focus{
+     outline: none;
+     box-shadow: none;
+}
 }
 
 </style>
